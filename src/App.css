@@ -127,7 +127,7 @@
 
 .mint-btn {
 	background: white;
-	border: none;
+	border: solid thick black;
 	border-radius: 4vw;
 	color: black;
 	font-size: 1.5vw;
