@@ -39,7 +39,7 @@ function App() {
 									{line}
 								</div>
 							))}
-							<MintButton ton Contract={Contract} />
+							<MintButton Contract={Contract} />
 						</div>
 						<div className="img-wrapper fadeIn">
 							<img src={rockstar} alt="rockstar" width="95%" />
@@ -168,7 +168,7 @@ function Header({ setContract }) {
 						</div>
 					))}
 					<div
-						className={`connectBtn ${hoverEnabled ? "connectBtnHover" : ""}`}
+						className={`connect-btn ${hoverEnabled ? "connect-btnHover" : ""}`}
 						onClick={handleOnConnectWalletClick}
 					>
 						{connectBtnText}
@@ -180,14 +180,26 @@ function Header({ setContract }) {
 }
 
 function MintButton({ Contract }) {
-	const [btnText, setBtnText] = useState("Mint with Rinkeby");
+	const MAX_COUNT = 10;
+	const [btnText, setBtnText] = useState("Mint on Rinkeby");
+	const [minting, setMinting] = useState(false);
+	const [count, setCount] = useState(1);
 
-	async function onMint() {
-		if (!provider.isConnected) {
+	function handleChangeCount(step) {
+		const nextCount = count + step;
+		if (nextCount > MAX_COUNT || nextCount < 1) {
 			return;
 		}
+		setCount(nextCount);
+	}
 
-		const from = await web3.eth.requestAccounts();
+	async function onMint() {
+		// check for correct network id
+
+		const [from] = await web3.eth.requestAccounts();
+
+		Contract.methods.mint([from, 1]);
+
 		web3.eth
 			.sendTransaction({
 				from: from[0],
@@ -205,8 +217,26 @@ function MintButton({ Contract }) {
 	}
 
 	return (
-		<button className="mint-btn" onClick={onMint}>
-			{btnText}
-		</button>
+		<div className="mint-btn-wrapper fadeIn">
+			<button className="mint-btn" onClick={onMint}>
+				{minting ? "Minting!" : `Mint ${count} on Rinkeby`}
+			</button>
+			<div className="count-btn-wrapper">
+				<button
+					className="count-btn"
+					disabled={count === MAX_COUNT}
+					onClick={() => handleChangeCount(1)}
+				>
+					{"▲"}
+				</button>
+				<button
+					className="count-btn"
+					disabled={count === 1}
+					onClick={() => handleChangeCount(-1)}
+				>
+					{"▼"}
+				</button>
+			</div>
+		</div>
 	);
 }
