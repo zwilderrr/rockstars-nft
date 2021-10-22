@@ -21,10 +21,6 @@
 	transition: width 0.5s 0.1s;
 }
 
-.connect-btnHover:hover {
-	width: 31vw;
-}
-
 .count-btn {
 	background: transparent;
 	border: solid thin transparent;
@@ -134,7 +130,7 @@
 	border: none;
 	border-radius: 4vw;
 	color: black;
-	font-size: 2vw;
+	font-size: 1.5vw;
 	font-weight: bold;
 	padding: 1.5vw;
 	margin-right: 1vw;
@@ -142,8 +138,8 @@
 }
 
 .mint-btn:hover {
-	box-shadow: 0px 4px 5px 0px rgb(0, 0, 0, 0.4);
-	transform: translateY(-2px);
+	box-shadow: 0px 6px 5px 0px rgb(0, 0, 0, 0.4);
+	transform: translateY(-4px);
 	cursor: pointer;
 	transition: all 0.3s ease;
 }
@@ -157,7 +153,9 @@
 
 .mint-btn-wrapper {
 	display: flex;
-	margin-top: 1vw;
+	margin-top: 1.5vw;
+	text-align: center;
+	align-items: center;
 }
 
 .rinkeby-link {

@@ -97,7 +97,7 @@ function Header({ setContract }) {
 		setContract(
 			new web3.eth.Contract(RockstarsNFTDevJSON.abi, contractAddress.ropsten)
 		);
-		setConnectBtnText(selectedAccount || CONNECT_WALLET);
+		setConnectBtnText(formatAccount(selectedAccount) || CONNECT_WALLET);
 	}
 
 	useEffect(() => {
@@ -122,7 +122,7 @@ function Header({ setContract }) {
 	}
 
 	function handleAccountChanged(accounts) {
-		setConnectBtnText(accounts[0] || CONNECT_WALLET);
+		setConnectBtnText(formatAccount(accounts[0]) || CONNECT_WALLET);
 	}
 
 	async function handleOnConnectWalletClick() {
@@ -148,9 +148,13 @@ function Header({ setContract }) {
 		window.scroll({ top: 0, behavior: "smooth" });
 	}
 
-	const hoverEnabled =
-		connectBtnText !== CONNECT_WALLET && connectBtnText !== INSTALL_METAMASK;
+	function formatAccount(account) {
+		if (!account) {
+			return;
+		}
 
+		return account.slice(0, 6) + "..." + account.slice(-6);
+	}
 	return (
 		<div className="header">
 			<div className="header-wrapper">
@@ -167,10 +171,7 @@ function Header({ setContract }) {
 							{s.title}
 						</div>
 					))}
-					<div
-						className={`connect-btn ${hoverEnabled ? "connect-btnHover" : ""}`}
-						onClick={handleOnConnectWalletClick}
-					>
+					<div className="connect-btn" onClick={handleOnConnectWalletClick}>
 						{connectBtnText}
 					</div>
 				</div>
