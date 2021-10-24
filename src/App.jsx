@@ -10,6 +10,7 @@ import "./App.css";
 
 const contractAddress = {
 	ropsten: "0x01C2349afCB380cD98521C1Dcf78fe133041E766",
+	rinkeby: "0x5379Da1b4660cE2271d514ed4345A980E169787E",
 };
 
 let provider;
@@ -95,7 +96,7 @@ function Header({ setContract }) {
 		const [selectedAccount] = await web3.eth.getAccounts();
 
 		setContract(
-			new web3.eth.Contract(RockstarsNFTDevJSON.abi, contractAddress.ropsten)
+			new web3.eth.Contract(RockstarsNFTDevJSON.abi, contractAddress.rinkeby)
 		);
 		setConnectBtnText(formatAccount(selectedAccount) || CONNECT_WALLET);
 	}
@@ -195,18 +196,15 @@ function MintButton({ Contract }) {
 	}
 
 	async function onMint() {
-		// check for correct network id
-
 		const [from] = await web3.eth.requestAccounts();
+		const value = web3.utils.toWei(`${0.0001 * count}`);
 
-		Contract.methods.mint([from, 1]);
-
-		web3.eth
-			.sendTransaction({
-				from: from[0],
-				to: "0x30601714cdbEEde3E659ACc942685315258e6f70",
-				value: "29900000000000",
-				chain: "3",
+		Contract.methods
+			.mint(from, count)
+			.send({
+				from,
+				to: Contract.options.address,
+				value,
 			})
 			.once("sending", res => console.log("sending", res))
 			.once("sent", res => console.log("sent", res))
