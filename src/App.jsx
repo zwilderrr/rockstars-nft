@@ -1,17 +1,25 @@
 import { useEffect, useState } from "react";
 import detectEthereumProvider from "@metamask/detect-provider";
 import Web3 from "web3";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import rockstar from "./images/rockstar5.png";
+import { TermsAndConditions } from "./Components/TermsAndConditions";
+import rockstar from "./images/rockstar-main.png";
 import RockstarsNFTDevJSON from "./contracts/RockstarsNFTDev.json";
-import { sections, ctaText } from "./content";
+
+import { socialMediaLinks, sections, ctaText } from "./content";
 
 import "./App.css";
+import { Footer } from "./Components/Footer";
 
 const contractAddress = {
 	ropsten: "0x01C2349afCB380cD98521C1Dcf78fe133041E766",
 	rinkeby: "0x5379Da1b4660cE2271d514ed4345A980E169787E",
 };
+
+const openSeaUrlDev =
+	"https://testnets.opensea.io/account/rockstars-nft-hotness";
+const openSeaUrlProd = "https://opensea.io/account/rockstars-nft-hotness";
 
 let provider;
 let web3;
@@ -24,46 +32,69 @@ function App() {
 	// }, []);
 
 	const [Contract, setContract] = useState();
+	const [onSuccess, setOnSuccess] = useState(false);
 
 	return (
 		<>
 			<Header setContract={setContract} />
-			<div className="body-wrapper">
-				<div className="content">
-					<div className="block">
-						<div className="ctaText-wrapper">
-							{ctaText.map((line, i) => (
-								<div
-									style={{ animationDelay: `${0.5 + 0.6 * i}s` }}
-									className="ctaText fadeInUp"
-								>
-									{line}
+			<Router>
+				<Switch>
+					<Route path="/" exact>
+						<div className="body-wrapper">
+							<div className="content">
+								<div className="block">
+									<div className="ctaText-wrapper">
+										{ctaText.map((line, i) => (
+											<div
+												style={{ animationDelay: `${0.5 + 0.6 * i}s` }}
+												className="ctaText fadeInUp"
+											>
+												{line}
+											</div>
+										))}
+										<MintButton
+											Contract={Contract}
+											setOnSuccess={setOnSuccess}
+										/>
+									</div>
+									<div className="img-wrapper fadeIn">
+										<img src={rockstar} alt="rockstar" width="95%" />
+									</div>
 								</div>
-							))}
-							<MintButton Contract={Contract} />
+							</div>
+							{onSuccess && (
+								<div className="external-link">
+									Head over to{" "}
+									<a
+										href={openSeaUrlDev}
+										alt="mint rinkeby"
+										target="_blank"
+										rel="noreferrer"
+									>
+										OpenSea
+									</a>{" "}
+									to view your Rockstar!
+								</div>
+							)}
+							<div className="external-link">
+								<a
+									href="https://app.mycrypto.com/faucet"
+									alt="mint rinkeby"
+									target="_blank"
+									rel="noreferrer"
+								>
+									Get some Rinkeby
+								</a>
+							</div>
 						</div>
-						<div className="img-wrapper fadeIn">
-							<img src={rockstar} alt="rockstar" width="95%" />
-						</div>
-					</div>
-					<div className="rinkeby-link">
-						<a
-							href="https://app.mycrypto.com/faucet"
-							alt="mint rinkeby"
-							target="_blank"
-							rel="noreferrer"
-						>
-							Get some Rinkeby
-						</a>
-					</div>
-				</div>
-			</div>
+					</Route>
+					<Route path="/terms">
+						<TermsAndConditions />
+					</Route>
+				</Switch>
+			</Router>
 
-			<div className="footer">
-				<div className="logo-text" style={{ color: "white" }}>
-					Rockstars
-				</div>
-			</div>
+			<Footer />
 		</>
 	);
 }
@@ -163,15 +194,12 @@ function Header({ setContract }) {
 					R
 				</div>
 				<div className="links">
-					{sections.map(s => (
-						<div
-							key={s.title}
-							className="link"
-							onClick={() => scrollToSection(s.title)}
-						>
-							{s.title}
-						</div>
+					{socialMediaLinks.map(link => (
+						<a key={link.name} className="link" href={link.href}>
+							<i className={link.iconClass} alt={link.name} />
+						</a>
 					))}
+
 					<div className="connect-btn" onClick={handleOnConnectWalletClick}>
 						{connectBtnText}
 					</div>
@@ -181,9 +209,9 @@ function Header({ setContract }) {
 	);
 }
 
-function MintButton({ Contract }) {
+function MintButton({ Contract, setOnSuccess }) {
 	const MAX_COUNT = 10;
-	const [btnText, setBtnText] = useState("Mint on Rinkeby");
+	const [btnText, setBtnText] = useState();
 	const [minting, setMinting] = useState(false);
 	const [count, setCount] = useState(1);
 
@@ -199,43 +227,68 @@ function MintButton({ Contract }) {
 		const [from] = await web3.eth.requestAccounts();
 		const value = web3.utils.toWei(`${0.0001 * count}`);
 
-		Contract.methods
-			.mint(from, count)
-			.send({
-				from,
-				to: Contract.options.address,
-				value,
-			})
-			.once("sending", res => console.log("sending", res))
-			.once("sent", res => console.log("sent", res))
-			.once("transactionHash", res => console.log("transactionHash", res))
-			.once("receipt", res => console.log("receipt", res))
-			.on("confirmation", res => console.log("confirmation", res))
-			.on("error", res => console.log("error", res))
-			.then(res => console.log("mined", res));
+		try {
+			Contract.methods
+				.mint(from, count)
+				.send({
+					from,
+					value,
+				})
+				.once("sending", res => {
+					setMinting(true);
+					setBtnText("Minting! Get pumped");
+				})
+				.once("sent", res => console.log("sent", res))
+				.once("transactionHash", res => console.log("transactionHash", res))
+				.once("receipt", res => console.log("receipt", res))
+				.on("confirmation", res => console.log("confirmation", res))
+				.on("error", res => console.log("error", res))
+				.then(res => {
+					setBtnText("Minted!");
+					setOnSuccess(true);
+				});
+		} catch (e) {
+			console.log(e);
+		} finally {
+			setMinting(false);
+		}
 	}
 
 	return (
-		<div className="mint-btn-wrapper fadeIn">
-			<button className="mint-btn" onClick={onMint}>
-				{minting ? "Minting!" : `Mint ${count} on Rinkeby`}
-			</button>
-			<div className="count-btn-wrapper">
-				<button
-					className="count-btn"
-					disabled={count === MAX_COUNT}
-					onClick={() => handleChangeCount(1)}
-				>
-					{"▲"}
+		<>
+			<div className="mint-btn-wrapper fadeIn">
+				<button className="mint-btn" onClick={onMint}>
+					{minting ? btnText : `Mint ${count} on Rinkeby`}
 				</button>
-				<button
-					className="count-btn"
-					disabled={count === 1}
-					onClick={() => handleChangeCount(-1)}
-				>
-					{"▼"}
-				</button>
+				<div className="count-btn-wrapper">
+					<button
+						className="count-btn"
+						disabled={count === MAX_COUNT}
+						onClick={() => handleChangeCount(1)}
+					>
+						{"▲"}
+					</button>
+					<button
+						className="count-btn"
+						disabled={count === 1}
+						onClick={() => handleChangeCount(-1)}
+					>
+						{"▼"}
+					</button>
+				</div>
 			</div>
-		</div>
+		</>
 	);
 }
+
+// {
+// 	sections.map(s => (
+// 		<div
+// 			key={s.title}
+// 			className="link"
+// 			onClick={() => scrollToSection(s.title)}
+// 		>
+// 			{s.title}
+// 		</div>
+// 	));
+// }

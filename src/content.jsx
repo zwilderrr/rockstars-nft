@@ -16,6 +16,31 @@ export const sections = [
 	},
 ];
 
+export const socialMediaLinks = [
+	{
+		iconClass: "fab fa-discord",
+		name: "discord",
+		href: "https://discord.com/channels/895346388831969392/895346389314338899",
+	},
+	{
+		iconClass: "fab fa-twitter",
+		name: "twitter",
+		href: "https://twitter.com/rockstars_nft",
+	},
+	{
+		name: "terms",
+		href: "/terms",
+	},
+	// {
+	// 	iconClass: "fab fa-instagram",
+	// 	name: "instagram",
+	// },
+	// {
+	// 	iconClass: "fab fa-tiktok",
+	// 	name: "tiktok",
+	// },
+];
+
 export const ctaText = [
 	"Rockstars is a collection of 10,000 uniquely generated NFTs rocking out on the Ethereum blockchain",
 	"They are rockstars, so they're awesome, but they're cartoons, so they're fun and friendly (and even a bit mischievous)",

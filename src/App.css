@@ -7,18 +7,21 @@
 .body-wrapper {
 	width: 70%;
 	margin: 0 auto;
+	min-height: 70vh;
 }
 
 .connect-btn {
 	border: solid 0.17vw;
 	border-radius: 0.5vw;
+	font-size: 1.3vw;
 	margin-left: 1.2vw;
-	width: 11vw;
-	text-align: center;
 	overflow: hidden;
-	white-space: nowrap;
+	padding: 1vw;
+	text-align: center;
 	text-overflow: ellipsis;
 	transition: width 0.5s 0.1s;
+	white-space: nowrap;
+	width: 11vw;
 }
 
 .count-btn {
@@ -65,19 +68,6 @@
 	-webkit-animation: fadeInUp 1s forwards;
 }
 
-.footer {
-	padding: 1.5vw 5vw;
-	background: black;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-}
-
-.footer > div:hover {
-	cursor: default;
-}
-
 .header {
 	position: sticky;
 	top: 0;
@@ -115,14 +105,10 @@
 	justify-content: end;
 }
 
-.link,
-.connect-btn {
+.link {
 	padding: 1vw;
+	margin-right: 0.5vw;
 	font-size: 1.3vw;
-}
-
-.links:hover {
-	cursor: pointer;
 }
 
 .mint-btn {
@@ -141,13 +127,13 @@
 	box-shadow: 0px 6px 5px 0px rgb(0, 0, 0, 0.4);
 	transform: translateY(-4px);
 	cursor: pointer;
-	transition: all 0.3s ease;
+	transition: all 0.2s ease;
 }
 
 .mint-btn:active {
 	box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.6);
 	transform: translateY(-1px);
-	transition: all 0.2s;
+	transition: all 0.1s;
 	cursor: pointer;
 }
 
@@ -158,15 +144,9 @@
 	align-items: center;
 }
 
-.rinkeby-link {
+.external-link {
 	margin-top: 1.5vw;
-	margin-left: 0.5vw;
 	text-align: left;
-}
-
-.rinkeby-link a {
-	color: black;
-	text-decoration: none;
 }
 
 /* animations */

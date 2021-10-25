@@ -1,0 +1,13 @@
+.footer {
+	padding: 1.5vw 5vw;
+	margin-top: 10vw;
+	background: black;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	color: white;
+}
+
+.footer > div:hover {
+	cursor: default;
+}
