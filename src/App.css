@@ -35,7 +35,7 @@
 
 .connect-btn:hover {
 	cursor: pointer;
-	border: solid white;
+	border-color: white;
 	transition: 0.2s;
 }
 
