@@ -1,13 +1,20 @@
 .footer {
-	padding: 1.5vw 5vw;
-	margin-top: 10vw;
 	background: black;
 	bottom: 0;
-	right: 0;
-	left: 0;
 	color: white;
+	justify-content: space-between;
+	align-items: center;
+	left: 0;
+	margin-top: 10vw;
+	padding: 1.5vw 5vw;
+	right: 0;
+	display: flex;
 }
 
 .footer > div:hover {
 	cursor: default;
+}
+
+.footer .link {
+	font-size: 1vw;
 }

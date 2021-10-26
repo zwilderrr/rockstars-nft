@@ -11,6 +11,7 @@ import { socialMediaLinks, sections, ctaText } from "./content";
 
 import "./App.css";
 import { Footer } from "./Components/Footer";
+import { MintButton } from "./Components/MintButton";
 
 const contractAddress = {
 	ropsten: "0x01C2349afCB380cD98521C1Dcf78fe133041E766",
@@ -36,8 +37,8 @@ function App() {
 
 	return (
 		<>
-			<Header setContract={setContract} />
 			<Router>
+				<Header setContract={setContract} />
 				<Switch>
 					<Route path="/" exact>
 						<div className="body-wrapper">
@@ -55,6 +56,7 @@ function App() {
 										<MintButton
 											Contract={Contract}
 											setOnSuccess={setOnSuccess}
+											web3={web3}
 										/>
 									</div>
 									<div className="img-wrapper fadeIn">
@@ -92,9 +94,8 @@ function App() {
 						<TermsAndConditions />
 					</Route>
 				</Switch>
+				<Footer />
 			</Router>
-
-			<Footer />
 		</>
 	);
 }
@@ -190,12 +191,20 @@ function Header({ setContract }) {
 	return (
 		<div className="header">
 			<div className="header-wrapper">
-				<div className="logo-text" onClick={scrollToTop}>
-					R
-				</div>
+				<Link to="/">
+					<div className="logo-text" onClick={scrollToTop}>
+						R
+					</div>
+				</Link>
 				<div className="links">
 					{socialMediaLinks.map(link => (
-						<a key={link.name} className="link" href={link.href}>
+						<a
+							key={link.name}
+							className="link"
+							href={link.href}
+							target="_blank"
+							rel="noreferrer"
+						>
 							<i className={link.iconClass} alt={link.name} />
 						</a>
 					))}
@@ -206,78 +215,6 @@ function Header({ setContract }) {
 				</div>
 			</div>
 		</div>
-	);
-}
-
-function MintButton({ Contract, setOnSuccess }) {
-	const MAX_COUNT = 10;
-	const [btnText, setBtnText] = useState();
-	const [minting, setMinting] = useState(false);
-	const [count, setCount] = useState(1);
-
-	function handleChangeCount(step) {
-		const nextCount = count + step;
-		if (nextCount > MAX_COUNT || nextCount < 1) {
-			return;
-		}
-		setCount(nextCount);
-	}
-
-	async function onMint() {
-		const [from] = await web3.eth.requestAccounts();
-		const value = web3.utils.toWei(`${0.0001 * count}`);
-
-		try {
-			Contract.methods
-				.mint(from, count)
-				.send({
-					from,
-					value,
-				})
-				.once("sending", res => {
-					setMinting(true);
-					setBtnText("Minting! Get pumped");
-				})
-				.once("sent", res => console.log("sent", res))
-				.once("transactionHash", res => console.log("transactionHash", res))
-				.once("receipt", res => console.log("receipt", res))
-				.on("confirmation", res => console.log("confirmation", res))
-				.on("error", res => console.log("error", res))
-				.then(res => {
-					setBtnText("Minted!");
-					setOnSuccess(true);
-				});
-		} catch (e) {
-			console.log(e);
-		} finally {
-			setMinting(false);
-		}
-	}
-
-	return (
-		<>
-			<div className="mint-btn-wrapper fadeIn">
-				<button className="mint-btn" onClick={onMint}>
-					{minting ? btnText : `Mint ${count} on Rinkeby`}
-				</button>
-				<div className="count-btn-wrapper">
-					<button
-						className="count-btn"
-						disabled={count === MAX_COUNT}
-						onClick={() => handleChangeCount(1)}
-					>
-						{"▲"}
-					</button>
-					<button
-						className="count-btn"
-						disabled={count === 1}
-						onClick={() => handleChangeCount(-1)}
-					>
-						{"▼"}
-					</button>
-				</div>
-			</div>
-		</>
 	);
 }
 

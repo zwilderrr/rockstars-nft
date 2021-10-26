@@ -27,10 +27,7 @@ export const socialMediaLinks = [
 		name: "twitter",
 		href: "https://twitter.com/rockstars_nft",
 	},
-	{
-		name: "terms",
-		href: "/terms",
-	},
+
 	// {
 	// 	iconClass: "fab fa-instagram",
 	// 	name: "instagram",
@@ -40,6 +37,8 @@ export const socialMediaLinks = [
 	// 	name: "tiktok",
 	// },
 ];
+
+export const termsLink = { name: "terms", href: "/terms" };
 
 export const ctaText = [
 	"Rockstars is a collection of 10,000 uniquely generated NFTs rocking out on the Ethereum blockchain",
