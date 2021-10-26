@@ -29,10 +29,11 @@ let web3;
 
 function SuccessMessage({ txHash }) {
 	return (
-		<div className="external-link">
+		<div className="success-message">
 			Success! View your transaction on{" "}
 			<a
 				href={etherscanRinkeby + { txHash }}
+				className="external-link"
 				alt="mint rinkeby"
 				target="_blank"
 				rel="noreferrer"
@@ -42,6 +43,7 @@ function SuccessMessage({ txHash }) {
 			and head over to{" "}
 			<a
 				href={openSeaUrlDev}
+				className="external-link"
 				alt="mint rinkeby"
 				target="_blank"
 				rel="noreferrer"
@@ -61,7 +63,6 @@ function App() {
 	// }, []);
 
 	const [Contract, setContract] = useState();
-	const [onSuccess, setOnSuccess] = useState(false);
 	const [txHash, setTxHash] = useState();
 
 	return (
@@ -84,7 +85,6 @@ function App() {
 										))}
 										<MintButton
 											Contract={Contract}
-											setOnSuccess={setOnSuccess}
 											setTxHash={setTxHash}
 											web3={web3}
 										/>

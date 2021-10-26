@@ -105,14 +105,17 @@
 	margin: 1vw;
 	font-size: 1.6vw;
 	margin-right: 1.5vw;
-	text-decoration: none;
 }
 
 .external-link {
 	margin-top: 1.5vw;
 	text-align: left;
+	text-decoration: underline;
 }
 
+.success-message {
+	margin-top: 2vw;
+}
 /* animations */
 
 @keyframes fadeInUp {
