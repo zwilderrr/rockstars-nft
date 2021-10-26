@@ -55,6 +55,14 @@ function SuccessMessage({ txHash }) {
 	);
 }
 
+function RockstarImage() {
+	return (
+		<div className="img-wrapper fadeIn">
+			<img src={rockstar} alt="rockstar" width="95%" />
+		</div>
+	);
+}
+
 function App() {
 	// useEffect(() => {
 	//   const body = document.querySelector(".body-wrapper");
@@ -64,6 +72,7 @@ function App() {
 
 	const [Contract, setContract] = useState();
 	const [txHash, setTxHash] = useState();
+	const isMobile = window.screen.width <= 480;
 
 	return (
 		<>
@@ -73,12 +82,13 @@ function App() {
 					<Route path="/" exact>
 						<div className="body-wrapper">
 							<div className="content">
+								{isMobile && <RockstarImage />}
 								<div className="block">
-									<div className="ctaText-wrapper">
+									<div className="cta-text-wrapper">
 										{ctaText.map((line, i) => (
 											<div
 												style={{ animationDelay: `${0.5 + 0.6 * i}s` }}
-												className="ctaText fadeInUp"
+												className="cta-text fadeInUp"
 											>
 												{line}
 											</div>
@@ -89,9 +99,7 @@ function App() {
 											web3={web3}
 										/>
 									</div>
-									<div className="img-wrapper fadeIn">
-										<img src={rockstar} alt="rockstar" width="95%" />
-									</div>
+									{!isMobile && <RockstarImage />}
 								</div>
 								<div className="block">
 									<div>{txHash && <SuccessMessage txHash={txHash} />}</div>
@@ -181,7 +189,6 @@ function Header({ setContract }) {
 	}
 
 	async function handleOnConnectWalletClick() {
-		console.log("hey");
 		if (web3) {
 			await web3.eth.requestAccounts();
 			return;

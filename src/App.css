@@ -39,15 +39,15 @@
 	transition: 0.2s;
 }
 
-.ctaText {
+.cta-text {
 	opacity: 0;
 	font-size: 1.1vw;
 	font-weight: bolder;
 	padding-bottom: 1vw;
 }
 
-.ctaText-wrapper {
-	height: 50vh;
+.cta-text-wrapper {
+	height: 60vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
@@ -80,7 +80,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 1.5vw 3vw 1.5vw 5vw;
+	padding: 0.7vw 3vw 0.7vw 5vw;
 }
 
 .img-wrapper {
@@ -99,6 +99,7 @@
 .links {
 	display: flex;
 	justify-content: end;
+	align-items: center;
 }
 
 .link {
@@ -151,30 +152,49 @@
 	}
 }
 
-@-webkit-keyframes fadeInUp {
-	from {
-		opacity: 0;
+@media only screen and (max-width: 480px) {
+	.block {
+		display: block;
 	}
 
-	to {
-		opacity: 1;
+	.connect-btn {
+		border: solid thin white;
+		border-radius: 10px;
+		font-size: 10px;
+		padding: 10px;
+		text-align: center;
+		width: 50%;
+	}
+
+	.cta-text-wrapper {
+		height: unset;
+		padding: 20px 0;
+	}
+
+	.cta-text {
+		font-size: 14px;
+		padding-bottom: 10px;
+	}
+
+	.header {
+		padding: 10px;
+	}
+
+	.img-wrapper {
+		/* opacity: 0; */
+		padding: 60px 0 40px;
+	}
+
+	.link {
+		margin: 1vw;
+		font-size: 14px;
+		margin-right: 14px;
+	}
+
+	.logo-text {
+		font-size: 30px;
 	}
 }
-
-@keyframes pulse {
-	0% {
-		background: white;
-	}
-
-	70% {
-		box-shadow: 0px 4px 5px 0px rgb(0, 0, 0, 0.6);
-	}
-
-	100% {
-		background: white;
-	}
-}
-
 /*
 pallet?
 #ff66ab	(255,102,171)

@@ -47,7 +47,7 @@ export function MintButton({ Contract, setTxHash, web3 }) {
 	}
 
 	return (
-		<div className="mint-btn-wrapper fadeIn">
+		<div className="fadeIn mint-btn-wrapper">
 			<button className="mint-btn" onClick={onMint}>
 				{minting ? btnText : `Mint ${count} on Rinkeby`}
 			</button>
