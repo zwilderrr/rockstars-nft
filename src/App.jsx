@@ -19,11 +19,39 @@ const contractAddress = {
 };
 
 const openSeaUrlDev =
-	"https://testnets.opensea.io/account/rockstars-nft-hotness";
+	"https://testnets.opensea.io/account/rockstars-nft-hotness-dev";
 const openSeaUrlProd = "https://opensea.io/account/rockstars-nft-hotness";
+
+const etherscanRinkeby = "https://rinkeby.etherscan.io/tx/";
 
 let provider;
 let web3;
+
+function SuccessMessage({ txHash }) {
+	return (
+		<div className="external-link">
+			Success! View your transaction on{" "}
+			<a
+				href={etherscanRinkeby + { txHash }}
+				alt="mint rinkeby"
+				target="_blank"
+				rel="noreferrer"
+			>
+				Etherscan
+			</a>{" "}
+			and head over to{" "}
+			<a
+				href={openSeaUrlDev}
+				alt="mint rinkeby"
+				target="_blank"
+				rel="noreferrer"
+			>
+				OpenSea
+			</a>{" "}
+			to check out your Rockstar.
+		</div>
+	);
+}
 
 function App() {
 	// useEffect(() => {
@@ -34,6 +62,7 @@ function App() {
 
 	const [Contract, setContract] = useState();
 	const [onSuccess, setOnSuccess] = useState(false);
+	const [txHash, setTxHash] = useState();
 
 	return (
 		<>
@@ -56,6 +85,7 @@ function App() {
 										<MintButton
 											Contract={Contract}
 											setOnSuccess={setOnSuccess}
+											setTxHash={setTxHash}
 											web3={web3}
 										/>
 									</div>
@@ -63,31 +93,23 @@ function App() {
 										<img src={rockstar} alt="rockstar" width="95%" />
 									</div>
 								</div>
+								<div className="block">
+									<div>{txHash && <SuccessMessage txHash={txHash} />}</div>
+									<div />
+								</div>
 							</div>
-							{onSuccess && (
+							{!txHash && (
 								<div className="external-link">
-									Head over to{" "}
 									<a
-										href={openSeaUrlDev}
+										href="https://app.mycrypto.com/faucet"
 										alt="mint rinkeby"
 										target="_blank"
 										rel="noreferrer"
 									>
-										OpenSea
-									</a>{" "}
-									to view your Rockstar!
+										Get some Rinkeby
+									</a>
 								</div>
 							)}
-							<div className="external-link">
-								<a
-									href="https://app.mycrypto.com/faucet"
-									alt="mint rinkeby"
-									target="_blank"
-									rel="noreferrer"
-								>
-									Get some Rinkeby
-								</a>
-							</div>
 						</div>
 					</Route>
 					<Route path="/terms">

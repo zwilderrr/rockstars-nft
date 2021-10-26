@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./MintButton.css";
 
-export function MintButton({ Contract, setOnSuccess, web3 }) {
+export function MintButton({ Contract, setOnSuccess, setTxHash, web3 }) {
 	const MAX_COUNT = 10;
 	const [btnText, setBtnText] = useState();
 	const [minting, setMinting] = useState(false);
@@ -38,6 +38,7 @@ export function MintButton({ Contract, setOnSuccess, web3 }) {
 				.then(res => {
 					setBtnText("Minted!");
 					setOnSuccess(true);
+					setTxHash(res.transactionHash);
 				});
 		} catch (e) {
 			console.log(e);

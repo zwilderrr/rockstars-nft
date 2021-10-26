@@ -41,7 +41,8 @@ export const socialMediaLinks = [
 export const termsLink = { name: "terms", href: "/terms" };
 
 export const ctaText = [
-	"Rockstars is a collection of 10,000 uniquely generated NFTs rocking out on the Ethereum blockchain",
+	"Rockstars is a collection of 10,000 uniquely generated NFTs rockin' out on the Ethereum blockchain",
 	"They are rockstars, so they're awesome, but they're cartoons, so they're fun and friendly (and even a bit mischievous)",
+	"What will yours become?",
 	"Mint one now and live the dream",
 ];

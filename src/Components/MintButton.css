@@ -27,18 +27,19 @@
 	padding: 1.5vw;
 	margin-right: 1vw;
 	transition: all 0.3s ease;
+	width: 80%;
 }
 
 .mint-btn:hover {
 	box-shadow: 0px 6px 5px 0px rgb(0, 0, 0, 0.4);
-	transform: translateY(-4px);
+	transform: translateY(-3px);
 	cursor: pointer;
 	transition: all 0.2s ease;
 }
 
 .mint-btn:active {
 	box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.6);
-	transform: translateY(-3px);
+	transform: translateY(-2px);
 	transition: all 0.1s;
 	cursor: pointer;
 }

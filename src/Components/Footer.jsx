@@ -14,7 +14,7 @@ export function Footer() {
 						key={link.name}
 						className="link"
 						href={link.href}
-						target={link.name !== "terms" && "_blank"}
+						target={link.name !== "terms" ? "_blank" : undefined}
 						rel="noreferrer"
 					>
 						{link.name}
