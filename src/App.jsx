@@ -15,7 +15,7 @@ import { MintButton } from "./Components/MintButton";
 
 const contractAddress = {
 	ropsten: "0x01C2349afCB380cD98521C1Dcf78fe133041E766",
-	rinkeby: "0x5379Da1b4660cE2271d514ed4345A980E169787E",
+	rinkeby: "0x3025Cfb46Fc2E0f43468Fd5dDb107401d359e878",
 };
 
 const openSeaUrlDev =
@@ -218,15 +218,3 @@ function Header({ setContract }) {
 		</div>
 	);
 }
-
-// {
-// 	sections.map(s => (
-// 		<div
-// 			key={s.title}
-// 			className="link"
-// 			onClick={() => scrollToSection(s.title)}
-// 		>
-// 			{s.title}
-// 		</div>
-// 	));
-// }
