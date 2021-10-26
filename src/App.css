@@ -30,25 +30,13 @@
 	transition: width 0.5s 0.1s;
 	white-space: nowrap;
 	width: 11vw;
+	transition: 0.2s;
 }
 
-.count-btn {
-	background: transparent;
-	border: solid thin transparent;
-	font-size: 2vw;
-	color: black;
-	transition: 0.3s;
-}
-
-.count-btn:hover {
-	color: white;
+.connect-btn:hover {
 	cursor: pointer;
-}
-
-.count-btn-wrapper {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+	border: solid white;
+	transition: 0.2s;
 }
 
 .ctaText {

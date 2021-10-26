@@ -159,6 +159,7 @@ function Header({ setContract }) {
 	}
 
 	async function handleOnConnectWalletClick() {
+		console.log("hey");
 		if (web3) {
 			await web3.eth.requestAccounts();
 			return;

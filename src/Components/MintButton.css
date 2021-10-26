@@ -1,3 +1,22 @@
+.count-btn {
+	background: transparent;
+	border: solid thin transparent;
+	font-size: 2vw;
+	color: black;
+	transition: 0.2s;
+}
+
+.count-btn:hover {
+	color: white;
+	cursor: pointer;
+}
+
+.count-btn-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
 .mint-btn {
 	background: white;
 	border: solid thick black;
