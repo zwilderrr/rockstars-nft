@@ -106,7 +106,7 @@ function App() {
 									<div />
 								</div>
 							</div>
-							{!txHash && (
+							{!txHash && !isMobile && (
 								<div className="external-link">
 									<a
 										href="https://app.mycrypto.com/faucet"
@@ -124,7 +124,7 @@ function App() {
 						<TermsAndConditions />
 					</Route>
 				</Switch>
-				<Footer />
+				<Footer isMobile={isMobile} />
 			</Router>
 		</>
 	);

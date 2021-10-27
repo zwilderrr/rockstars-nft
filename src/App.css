@@ -30,13 +30,13 @@
 	transition: width 0.5s 0.1s;
 	white-space: nowrap;
 	width: 11vw;
-	transition: 0.2s;
+	transition: 0.15s;
 }
 
 .connect-btn:hover {
 	cursor: pointer;
 	border-color: white;
-	transition: 0.2s;
+	/* transition: 0.15s; */
 }
 
 .cta-text {
@@ -160,10 +160,10 @@
 	.connect-btn {
 		border: solid thin white;
 		border-radius: 10px;
-		font-size: 10px;
+		font-size: 14px;
 		padding: 10px;
 		text-align: center;
-		width: 50%;
+		width: 60%;
 	}
 
 	.cta-text-wrapper {
@@ -172,7 +172,7 @@
 	}
 
 	.cta-text {
-		font-size: 14px;
+		font-size: 16px;
 		padding-bottom: 10px;
 	}
 
@@ -181,25 +181,16 @@
 	}
 
 	.img-wrapper {
-		/* opacity: 0; */
 		padding: 60px 0 40px;
 	}
 
 	.link {
 		margin: 1vw;
-		font-size: 14px;
+		font-size: 16px;
 		margin-right: 14px;
 	}
 
 	.logo-text {
-		font-size: 30px;
+		font-size: 36px;
 	}
 }
-/*
-pallet?
-#ff66ab	(255,102,171)
-#8090c7	(128,144,199)
-#d8d8d8	(216,216,216)
-#333333	(51,51,51)
-#000000	(0,0,0)
-*/
