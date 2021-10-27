@@ -68,6 +68,39 @@ function App() {
 	const [txHash, setTxHash] = useState();
 	const isMobile = window.screen.width <= 480;
 
+	function getHelperText() {
+		if (!isMobile) {
+			return (
+				<div>
+					<a
+						href="https://app.mycrypto.com/faucet"
+						className="external-link"
+						alt="mint rinkeby"
+						target="_blank"
+						rel="noreferrer"
+					>
+						Get some Rinkeby
+					</a>
+				</div>
+			);
+		}
+
+		if (!web3) {
+			<div>
+				On mobile? Mint from the{" "}
+				<a
+					href="https://metamask.io/download"
+					className="external-link"
+					alt="metamask download"
+					target="_blank"
+					rel="noreferrer"
+				>
+					Metamask app
+				</a>
+			</div>;
+		}
+	}
+
 	return (
 		<>
 			<Router>
@@ -102,35 +135,7 @@ function App() {
 								</div>
 							</div>
 
-							{!txHash && !isMobile && (
-								<div className="external-link">
-									<a
-										href="https://app.mycrypto.com/faucet"
-										alt="mint rinkeby"
-										target="_blank"
-										rel="noreferrer"
-									>
-										Get some Rinkeby
-									</a>
-								</div>
-							)}
-
-							{!txHash &&
-								isMobile &&
-								!web3(
-									<div>
-										On mobile? Mint from the{" "}
-										<a
-											href="https://metamask.io/download"
-											className="external-link"
-											alt="metamask download"
-											target="_blank"
-											rel="noreferrer"
-										>
-											Metamask app
-										</a>
-									</div>
-								)}
+							{!txHash && getHelperText()}
 						</div>
 					</Route>
 					<Route path="/terms">
