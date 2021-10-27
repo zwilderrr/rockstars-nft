@@ -71,10 +71,12 @@ function App() {
 	function getHelperText() {
 		if (!isMobile) {
 			return (
-				<div>
+				<div
+					className="external-link fadeIn"
+					style={{ animationDelay: "2.6s" }}
+				>
 					<a
 						href="https://app.mycrypto.com/faucet"
-						className="external-link"
 						alt="mint rinkeby"
 						target="_blank"
 						rel="noreferrer"
