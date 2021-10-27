@@ -101,6 +101,7 @@ function App() {
 									<div />
 								</div>
 							</div>
+
 							{!txHash && !isMobile && (
 								<div className="external-link">
 									<a
@@ -110,6 +111,21 @@ function App() {
 										rel="noreferrer"
 									>
 										Get some Rinkeby
+									</a>
+								</div>
+							)}
+
+							{!txHash && isMobile && (
+								<div>
+									On mobile? Mint from the{" "}
+									<a
+										href="https://metamask.io/download"
+										className="external-link"
+										alt="metamask download"
+										target="_blank"
+										rel="noreferrer"
+									>
+										Metamask app
 									</a>
 								</div>
 							)}
