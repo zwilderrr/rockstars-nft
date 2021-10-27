@@ -16,9 +16,9 @@ export function MintButton({ Contract, setTxHash, web3, isMobile }) {
 	}
 
 	async function onMint() {
-		if (!web3) {
-			return;
-		}
+		// if (!web3) {
+		// 	return;
+		// }
 
 		try {
 			const [from] = await web3.eth.requestAccounts();
