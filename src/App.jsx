@@ -64,12 +64,6 @@ function RockstarImage() {
 }
 
 function App() {
-	// useEffect(() => {
-	//   const body = document.querySelector(".body-wrapper");
-	//   const header = document.querySelector(".header");
-	//   // see https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
-	// }, []);
-
 	const [Contract, setContract] = useState();
 	const [txHash, setTxHash] = useState();
 	const isMobile = window.screen.width <= 480;
@@ -97,6 +91,7 @@ function App() {
 											Contract={Contract}
 											setTxHash={setTxHash}
 											web3={web3}
+											isMobile={isMobile}
 										/>
 									</div>
 									{!isMobile && <RockstarImage />}

@@ -8,7 +8,7 @@ export function Footer({ isMobile }) {
 	return (
 		<div
 			className="footer"
-			style={{ position: isTerms && !isMobile ? "static" : "fixed" }}
+			style={{ position: isTerms || isMobile ? "static" : "fixed" }}
 		>
 			<div className="logo-text">Rockstars</div>
 			<div className="links">

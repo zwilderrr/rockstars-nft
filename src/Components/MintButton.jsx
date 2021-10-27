@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./MintButton.css";
 
-export function MintButton({ Contract, setTxHash, web3 }) {
+export function MintButton({ Contract, setTxHash, web3, isMobile }) {
 	const MAX_COUNT = 10;
 	const [btnText, setBtnText] = useState();
 	const [minting, setMinting] = useState(false);
@@ -16,6 +16,9 @@ export function MintButton({ Contract, setTxHash, web3 }) {
 	}
 
 	async function onMint() {
+		if (!web3 || isMobile) {
+			return;
+		}
 		const [from] = await web3.eth.requestAccounts();
 		const value = web3.utils.toWei(`${0.0001 * count}`);
 
