@@ -22,6 +22,7 @@
 @media only screen and (max-width: 480px) {
 	.footer {
 		margin-top: 30px;
+		padding-bottom: 30px;
 	}
 	.footer .link {
 		font-size: 12px;
