@@ -36,7 +36,7 @@
 .connect-btn:hover {
 	cursor: pointer;
 	border-color: white;
-	/* transition: 0.15s; */
+	transition: 0.15s;
 }
 
 .cta-text {
