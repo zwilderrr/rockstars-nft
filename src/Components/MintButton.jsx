@@ -16,13 +16,14 @@ export function MintButton({ Contract, setTxHash, web3, isMobile }) {
 	}
 
 	async function onMint() {
-		if (!web3 || isMobile) {
+		if (!web3) {
 			return;
 		}
-		const [from] = await web3.eth.requestAccounts();
-		const value = web3.utils.toWei(`${0.0001 * count}`);
 
 		try {
+			const [from] = await web3.eth.requestAccounts();
+			const value = web3.utils.toWei(`${0.0001 * count}`);
+
 			Contract.methods
 				.mint(from, count)
 				.send({

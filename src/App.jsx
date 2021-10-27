@@ -138,7 +138,7 @@ function Header({ setContract }) {
 		{ name: "chainChanged", fn: handleChainChanged },
 	];
 
-	const [connectBtnText, setConnectBtnText] = useState();
+	const [connectBtnText, setConnectBtnText] = useState(CONNECT_WALLET);
 
 	async function connectWallet() {
 		provider = await detectEthereumProvider({ timeout: 1000 });
@@ -196,10 +196,6 @@ function Header({ setContract }) {
 		}
 
 		connectWallet();
-	}
-
-	function scrollToSection(title) {
-		document.querySelector("#" + title).scrollIntoView({ behavior: "smooth" });
 	}
 
 	function scrollToTop() {
