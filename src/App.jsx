@@ -115,20 +115,22 @@ function App() {
 								</div>
 							)}
 
-							{!txHash && isMobile && (
-								<div>
-									On mobile? Mint from the{" "}
-									<a
-										href="https://metamask.io/download"
-										className="external-link"
-										alt="metamask download"
-										target="_blank"
-										rel="noreferrer"
-									>
-										Metamask app
-									</a>
-								</div>
-							)}
+							{!txHash &&
+								isMobile &&
+								!web3(
+									<div>
+										On mobile? Mint from the{" "}
+										<a
+											href="https://metamask.io/download"
+											className="external-link"
+											alt="metamask download"
+											target="_blank"
+											rel="noreferrer"
+										>
+											Metamask app
+										</a>
+									</div>
+								)}
 						</div>
 					</Route>
 					<Route path="/terms">
