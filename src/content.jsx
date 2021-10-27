@@ -20,7 +20,7 @@ export const socialMediaLinks = [
 	{
 		iconClass: "fab fa-discord",
 		name: "discord",
-		href: "https://discord.com/channels/895346388831969392/895346389314338899",
+		href: "https://discord.gg/jJsQjpVhSS",
 	},
 	{
 		iconClass: "fab fa-twitter",
@@ -41,7 +41,7 @@ export const socialMediaLinks = [
 export const termsLink = { name: "terms", href: "/terms" };
 
 export const ctaText = [
-	"Rockstars is a collection of 10,000 uniquely generated NFTs rockin' out on the Ethereum blockchain",
+	"Rockstars is a community of 10,000 uniquely generated NFTs rockin' out on the Ethereum blockchain",
 	"They're rockstars, so they're awesome, but they're cartoons, so they're fun and friendly (and even a bit mischievous)",
 	"Mint one now and live the dream",
 ];
