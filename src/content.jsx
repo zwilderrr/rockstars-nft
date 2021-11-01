@@ -45,3 +45,37 @@ export const ctaText = [
 	"They're rockstars, so they're awesome, but they're cartoons, so they're fun and friendly (and even a bit mischievous)",
 	"Mint one now and live the dream",
 ];
+
+export const whyText = [
+	"When you mint a Rockstar, you join a community of people who are awesome, fun and friendly.",
+	"Rockstars are famous but treat their neighborhood barista really nicely. They're start-up founders and philosophers and revolutionaries but help clean up their local park even when no one is looking.",
+	"A Rockstar is everything. Because they're Rockstars--so they rock, but they're cartoons, so they're always there for you.",
+	"Mint one now and join the band.",
+];
+// export const whyText = [
+// 	"When you mint a Rockstar, you join a community of people who are awesome, fun and friendly. You choose to live an epic life of humble grandeur.",
+// 	"Rockstars are famous but treat their neighborhood barista really nicely. They're start-up founders and philosophers and quiet revolutionaries but help clean up their local park even when no one is looking. They have a blast just being kind, good people.",
+// 	"A Rockstar is everything. Because they're Rockstars--so they rock, but they're cartoons, so they're always there for you.",
+// 	"Mint one now and join the band.",
+// ];
+// export const whyText = [
+// 	"When you mint a Rockstar, you join a community of people who are awesome, fun and friendly. You choose to live an epic life of humble grandeur.",
+// 	"Rockstars are famous but treat their neighborhood barista really nicely. They're start-up founders and philosophers and quiet revolutionaries but help clean up their local park even when no one is looking. They have a blast just being kind, good people.",
+// 	"A Rockstar is everything. Because they're Rockstars--so they rock, but they're cartoons, so they're always there for you.",
+// 	"When you mint a Rockstar, you mint a vote for humanity. You say that life is not a zero sum game--it's a game of big success and big kindness and it's only won when everyone wins.",
+// 	"Mint a Rockstar now and join the cause.",
+// ];
+// export const whyText = [
+// 	"Rockstars NFT is a community of people who are awesome, fun and friendly. When you mint a Rockstar you choose to live an epic life of humble grandeur.",
+// 	"Rockstars are famous but treat their neighborhood barista really nicely. They're start-up founders and philosophers and quiet revolutionaries but help clean up their local park even when no one is looking. They're genuine, sincere people who do the right thing and know how to have a blast doing it.",
+// 	"A Rockstar is everything. Because they're Rockstars--so they rock, but they're cartoons, so they're always there for you.",
+// 	"When you mint a Rockstar, you mint a vote for humanity. You mint a vote for what's good and right in the world. You put yourself on the winning team and become a force of good in the world. You say that life is not a zero sum game--it's a game of big success and big kindness and it's only won when everyone wins.",
+// 	"Mint a Rockstar now and join the cause.",
+// ];
+// export const whyText = [
+// 	"Gain access to a community of people who are awesome, fun and friendly. Life is not a choice between being rich, successful, and famous but not a nice person doing not nice things, or being good and kind and giving, but feeling unimportant.",
+// 	"Life is about being famous, but treating the local barista really nicely. About being a revolutionary, but volunteering at the food bank with a smile. About being a paradigm-altering philosopher, but taking the time to tutor underprivileged kids. Or just about having integrity, being a kind, sincere, genuine person who does the right thing--but knows how to have a great time.",
+// 	"A Rockstar is both and everything. Because they're Rockstars--so they rock, but they're cartoons, so they're always there for you.",
+// 	"When you mint a rockstar, you mint a vote for humanity. You mint a vote for what's good and right in the world. You put yourself on the winning team and become a force of good in the world.",
+// 	"Get the picture? Mint a Rockstar now and join the movement.",
+// ];
