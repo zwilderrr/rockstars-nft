@@ -7,7 +7,7 @@ import { TermsAndConditions } from "./Components/TermsAndConditions";
 import rockstar from "./images/rockstar-main.png";
 import RockstarsNFTDevJSON from "./contracts/RockstarsNFTDev.json";
 
-import { socialMediaLinks, sections, ctaText } from "./content";
+import { socialMediaLinks, sections, ctaText, tweet } from "./content";
 
 import "./App.css";
 import { Footer } from "./Components/Footer";
@@ -30,27 +30,43 @@ let web3;
 function SuccessMessage({ txHash }) {
 	return (
 		<div className="success-message">
-			Success! View your transaction on{" "}
-			<a
-				href={etherscanRinkeby + { txHash }}
-				className="external-link"
-				alt="mint rinkeby"
-				target="_blank"
-				rel="noreferrer"
-			>
-				Etherscan
-			</a>{" "}
-			and head over to{" "}
-			<a
-				href={openSeaUrlDev}
-				className="external-link"
-				alt="mint rinkeby"
-				target="_blank"
-				rel="noreferrer"
-			>
-				OpenSea
-			</a>{" "}
-			to check out your Rockstar.
+			<div>
+				Success!{" "}
+				<a
+					href={tweet}
+					className="external-link"
+					alt="twitter"
+					target="_blank"
+					rel="noreferrer"
+				>
+					Share
+				</a>{" "}
+				your new Rockstar status on Twitter
+			</div>
+			<br />
+			<div>
+				View your transaction on{" "}
+				<a
+					href={etherscanRinkeby + { txHash }}
+					className="external-link"
+					alt="mint rinkeby"
+					target="_blank"
+					rel="noreferrer"
+				>
+					Etherscan
+				</a>{" "}
+				and head over to{" "}
+				<a
+					href={openSeaUrlDev}
+					className="external-link"
+					alt="mint rinkeby"
+					target="_blank"
+					rel="noreferrer"
+				>
+					OpenSea
+				</a>{" "}
+				to check out your Rockstar
+			</div>
 		</div>
 	);
 }

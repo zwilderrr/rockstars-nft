@@ -1,20 +1,17 @@
-const content =
-	"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?";
-
-export const sections = [
-	{
-		title: "about",
-		content,
-	},
-	{
-		title: "roadmap",
-		content,
-	},
-	{
-		title: "faq",
-		content,
-	},
-];
+// export const sections = [
+// 	{
+// 		title: "about",
+// 		content,
+// 	},
+// 	{
+// 		title: "roadmap",
+// 		content,
+// 	},
+// 	{
+// 		title: "faq",
+// 		content,
+// 	},
+// ];
 
 export const socialMediaLinks = [
 	{
@@ -37,6 +34,9 @@ export const socialMediaLinks = [
 	// 	name: "tiktok",
 	// },
 ];
+
+export const tweet =
+	"https://twitter.com/intent/tweet?text=Finally%20achieved%20Rockstar%20status%21%20Mint%20your%20own%20Rockstar%20NFT%20at%20https%3A//rockstars.buzz%20and%20check%20out%20the%20%23Rockstars_NFT%20collection%20on%20https%3A//opensea.com&hashtags=Rockstars_NFT%2CNFT%2CNFTart";
 
 export const termsLink = { name: "terms", href: "/terms" };
 
