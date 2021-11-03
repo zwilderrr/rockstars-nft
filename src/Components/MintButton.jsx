@@ -19,6 +19,10 @@ export function MintButton({ Contract, setTxHash, web3 }) {
 	async function onMint() {
 		try {
 			const [from] = await web3.eth.requestAccounts();
+			const id = await web3.eth.net.getId();
+			if (id !== 4) {
+				return;
+			}
 			const value = web3.utils.toWei("0.0001") * count;
 
 			Contract.methods
@@ -39,13 +43,17 @@ export function MintButton({ Contract, setTxHash, web3 }) {
 				})
 				.once("receipt", res => console.log("receipt", res))
 				.on("confirmation", res => console.log("confirmation", res))
-				.on("error", res => console.log("error", res))
+				.on("error", res => {
+					setMinting(false);
+					setCanMint(true);
+					console.log("error", res);
+				})
 				.then(res => {
 					setBtnText("Minted!");
 					setTxHash(res.transactionHash);
 				});
 		} catch (e) {
-			console.log(e);
+			console.log("eeeerror", e);
 		} finally {
 			setMinting(false);
 			setCanMint(true);
