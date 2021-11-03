@@ -132,6 +132,7 @@ function App() {
 									<div className="cta-text-wrapper">
 										{ctaText.map((line, i) => (
 											<div
+												key={i}
 												style={{ animationDelay: `${0.5 + 0.6 * i}s` }}
 												className="cta-text fadeInUp"
 											>

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "./MintButton.css";
 
-export function MintButton({ Contract, setTxHash, web3, isMobile }) {
+export function MintButton({ Contract, setTxHash, web3 }) {
 	const MAX_COUNT = 10;
 	const [btnText, setBtnText] = useState();
 	const [minting, setMinting] = useState(false);
+	const [canMint, setCanMint] = useState(true);
 	const [count, setCount] = useState(1);
 
 	function handleChangeCount(step) {
@@ -18,7 +19,7 @@ export function MintButton({ Contract, setTxHash, web3, isMobile }) {
 	async function onMint() {
 		try {
 			const [from] = await web3.eth.requestAccounts();
-			const value = web3.utils.toWei(`${0.0001 * count}`);
+			const value = web3.utils.toWei("0.0001") * count;
 
 			Contract.methods
 				.mint(from, count)
@@ -26,9 +27,13 @@ export function MintButton({ Contract, setTxHash, web3, isMobile }) {
 					from,
 					value,
 				})
-				.once("sending", res => console.log("sending"))
+				.once("sending", res => {
+					setCanMint(false);
+					console.log("sending", res);
+				})
 				.once("sent", res => console.log("sent", res))
 				.once("transactionHash", res => {
+					console.log("transactionHash", res);
 					setMinting(true);
 					setBtnText("Minting! Get pumped");
 				})
@@ -43,25 +48,26 @@ export function MintButton({ Contract, setTxHash, web3, isMobile }) {
 			console.log(e);
 		} finally {
 			setMinting(false);
+			setCanMint(true);
 		}
 	}
 
 	return (
 		<div className="fadeIn mint-btn-wrapper">
-			<button className="mint-btn" onClick={onMint}>
+			<button className="mint-btn" onClick={onMint} disabled={!canMint}>
 				{minting ? btnText : `Mint ${count} on Rinkeby`}
 			</button>
 			<div className="count-btn-wrapper">
 				<button
 					className="count-btn"
-					disabled={count === MAX_COUNT}
+					disabled={count === MAX_COUNT || !canMint}
 					onClick={() => handleChangeCount(1)}
 				>
 					{"▲"}
 				</button>
 				<button
 					className="count-btn"
-					disabled={count === 1}
+					disabled={count === 1 || !canMint}
 					onClick={() => handleChangeCount(-1)}
 				>
 					{"▼"}

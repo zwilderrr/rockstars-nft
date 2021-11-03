@@ -36,12 +36,12 @@ export const socialMediaLinks = [
 ];
 
 export const tweet =
-	"https://twitter.com/intent/tweet?text=Finally%20achieved%20Rockstar%20status%21%20Mint%20your%20own%20Rockstar%20NFT%20at%20https%3A//rockstars.buzz%20and%20check%20out%20the%20%23Rockstars_NFT%20collection%20on%20https%3A//opensea.com&hashtags=Rockstars_NFT%2CNFT%2CNFTart";
+	"https://twitter.com/intent/tweet?text=Finally%20achieved%20Rockstar%20status%21%20Mint%20your%20own%20Rockstar%20NFT%20at%20https%3A//rockstars.buzz%20and%20check%20out%20the%20%23Rockstars_NFT%20collection%20at%20https%3A//opensea.com&hashtags=Rockstars_NFT%2CNFT%2CNFTart";
 
 export const termsLink = { name: "terms", href: "/terms" };
 
 export const ctaText = [
-	"Rockstars is a community of 10,000 uniquely generated NFTs rockin' out on the Ethereum blockchain",
+	"Rockstars NFT is a community of 10,000 uniquely generated NFTs rockin' out on the Ethereum blockchain",
 	"They're rockstars, so they're awesome, but they're cartoons, so they're fun and friendly (and even a bit mischievous)",
 	"Mint one now and live the dream",
 ];
