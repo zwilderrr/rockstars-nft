@@ -53,10 +53,7 @@ export function MintButton({ Contract, setTxHash, web3 }) {
 					setTxHash(res.transactionHash);
 				});
 		} catch (e) {
-			console.log("eeeerror", e);
-		} finally {
-			setMinting(false);
-			setCanMint(true);
+			console.log("catch", e);
 		}
 	}
 
