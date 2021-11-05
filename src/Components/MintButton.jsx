@@ -57,22 +57,24 @@ export function MintButton({ Contract, setTxHash, web3 }) {
 		}
 	}
 
+	const disableButtons = !web3 || !canMint;
+	console.log("hey", web3);
 	return (
 		<div className="fadeIn mint-btn-wrapper">
-			<button className="mint-btn" onClick={onMint} disabled={!canMint}>
+			<button className="mint-btn" onClick={onMint} disabled={disableButtons}>
 				{minting ? btnText : `Mint ${count} on Rinkeby`}
 			</button>
 			<div className="count-btn-wrapper">
 				<button
 					className="count-btn"
-					disabled={count === MAX_COUNT || !canMint}
+					disabled={disableButtons || count === MAX_COUNT}
 					onClick={() => handleChangeCount(1)}
 				>
 					{"▲"}
 				</button>
 				<button
 					className="count-btn"
-					disabled={count === 1 || !canMint}
+					disabled={disableButtons || count === 1}
 					onClick={() => handleChangeCount(-1)}
 				>
 					{"▼"}

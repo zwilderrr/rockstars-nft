@@ -17,7 +17,7 @@ export const socialMediaLinks = [
 	{
 		iconClass: "fab fa-discord",
 		name: "discord",
-		href: "https://discord.gg/jJsQjpVhSS",
+		href: "https://discord.gg/Hb6EezYRCH",
 	},
 	{
 		iconClass: "fab fa-twitter",
