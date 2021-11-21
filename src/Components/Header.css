@@ -1,0 +1,40 @@
+.col-right {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.connect-btn {
+	background: transparent;
+	border: solid 2px;
+	border-radius: 5px;
+	font-size: 18px;
+	padding: 12px 8px;
+	width: 170px;
+}
+
+.connect-btn:hover {
+	cursor: pointer;
+	border-color: white;
+}
+
+.header {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 50px;
+}
+
+.link {
+	font-size: 24px;
+	margin-right: 36px;
+}
+
+.logo-text {
+	font-family: "Lobster", cursive;
+	font-size: 64px;
+}
+
+.logo-text:hover {
+	cursor: pointer;
+}

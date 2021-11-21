@@ -21,9 +21,14 @@ export function MintButton({ Contract, setTxHash, web3 }) {
 			const [from] = await web3.eth.requestAccounts();
 			const id = await web3.eth.net.getId();
 			if (id !== 4) {
+				window.alert(
+					"Mint failed!\nNot connected to Ethereum Mainnet\nPlease switch to Mainnet and try again"
+				);
 				return;
 			}
-			const value = web3.utils.toWei("0.0001") * count;
+			const cost = await Contract.methods.cost().call();
+			const value = cost * count;
+			console.log(cost, value);
 
 			Contract.methods
 				.mint(from, count)
@@ -58,7 +63,7 @@ export function MintButton({ Contract, setTxHash, web3 }) {
 	}
 
 	const disableButtons = !web3 || !canMint;
-	console.log("hey", web3);
+
 	return (
 		<div className="fadeIn mint-btn-wrapper">
 			<button className="mint-btn" onClick={onMint} disabled={disableButtons}>

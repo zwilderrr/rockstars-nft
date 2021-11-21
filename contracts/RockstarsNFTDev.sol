@@ -1225,7 +1225,7 @@ contract RockstarsNFTDev is ERC721Enumerable, Ownable {
     string memory _initBaseURI
   ) ERC721(_name, _symbol) {
     setBaseURI(_initBaseURI);
-    mint(msg.sender, 5);
+    mint(msg.sender, 10);
   }
 
   // internal
@@ -1236,10 +1236,10 @@ contract RockstarsNFTDev is ERC721Enumerable, Ownable {
   // public
   function mint(address _to, uint256 _mintAmount) public payable {
     uint256 supply = totalSupply();
-    require(!paused);
-    require(_mintAmount > 0);
-    require(_mintAmount <= maxMintAmount);
-    require(supply + _mintAmount <= maxSupply);
+    require(!paused, "Contract is paused");
+    require(_mintAmount > 0, "Must mint at least 1");
+    require(_mintAmount <= maxMintAmount, "Cannot mint more than 5 at once");
+    require(supply + _mintAmount <= maxSupply, "Mint amount exceeds max supply");
 
     if (msg.sender != owner()) {
         if(whitelisted[msg.sender] != true) {
@@ -1288,8 +1288,8 @@ contract RockstarsNFTDev is ERC721Enumerable, Ownable {
     cost = _newCost;
   }
 
-  function setmaxMintAmount(uint256 _newmaxMintAmount) public onlyOwner() {
-    maxMintAmount = _newmaxMintAmount;
+  function setMaxMintAmount(uint256 _newMaxMintAmount) public onlyOwner() {
+    maxMintAmount = _newMaxMintAmount;
   }
 
   function setBaseURI(string memory _newBaseURI) public onlyOwner {
@@ -1313,6 +1313,7 @@ contract RockstarsNFTDev is ERC721Enumerable, Ownable {
   }
 
   function withdraw() public payable onlyOwner {
-    require(payable(msg.sender).send(address(this).balance));
+    (bool success, ) = msg.sender.call{value: address(this).balance}("");
+    require(success, "Transfer failed.");
   }
 }
