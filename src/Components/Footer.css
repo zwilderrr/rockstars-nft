@@ -1,30 +1,35 @@
 .footer {
+	align-items: center;
 	background: black;
 	bottom: 0;
 	color: white;
-	justify-content: space-between;
-	align-items: center;
-	left: 0;
-	margin-top: 10vw;
-	padding: 0.7vw 5vw;
-	right: 0;
 	display: flex;
+	justify-content: space-between;
+	left: 0;
+	padding: 10px 60px;
+	right: 0;
 }
 
-.footer > div:hover {
+.footer a {
+	font-size: 16px;
+}
+
+.footer .logo-text:hover {
 	cursor: default;
-}
-
-.footer .link {
-	font-size: 1vw;
 }
 
 @media only screen and (max-width: 480px) {
 	.footer {
 		margin-top: 30px;
-		padding-bottom: 30px;
+		padding: 10px 20px 30px;
 	}
-	.footer .link {
+
+	.footer a {
 		font-size: 12px;
+		margin-right: 10px;
+	}
+
+	.footer .logo-text {
+		font-size: 36px;
 	}
 }

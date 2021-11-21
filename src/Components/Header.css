@@ -38,3 +38,31 @@
 .logo-text:hover {
 	cursor: pointer;
 }
+
+@media only screen and (max-width: 480px) {
+	.connect-btn {
+		border: solid thin white;
+		border-radius: 5px;
+		font-size: 14px;
+		padding: 10px;
+		text-align: center;
+		width: 60%;
+	}
+
+	.header {
+		padding: 10px 20px;
+	}
+
+	.link {
+		font-size: 18px;
+		margin-right: 20px;
+	}
+
+	.links {
+		display: flex;
+	}
+
+	.logo-text {
+		font-size: 42px;
+	}
+}
