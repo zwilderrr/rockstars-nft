@@ -3,10 +3,13 @@ import { socialMediaLinks, termsLink } from "../content";
 import { useLocation } from "react-router";
 
 export function Footer({ isMobile }) {
-	// const isTerms = useLocation().pathname.includes("/terms");
+	const isRootUrl = useLocation().pathname === "/";
 
 	return (
-		<div className="footer" style={{ position: isMobile ? "fixed" : "static" }}>
+		<div
+			className="footer"
+			style={{ position: isMobile || isRootUrl ? "fixed" : "static" }}
+		>
 			<div className="logo-text">Rockstars</div>
 			<div className="links">
 				{[...socialMediaLinks, termsLink].map(link => (

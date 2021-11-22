@@ -4,6 +4,7 @@ import { Footer } from "./Components/Footer";
 import Header from "./Components/Header";
 import LandingPage from "./Components/LandingPage";
 import { TermsAndConditions } from "./Components/TermsAndConditions";
+import "./App.css";
 
 export default function App() {
 	const [web3, setWeb3] = useState();
@@ -21,7 +22,7 @@ export default function App() {
 
 			<Switch>
 				<Route path="/" exact>
-					<LandingPage />
+					<LandingPage web3={web3} provider={provider} Contract={Contract} />
 				</Route>
 
 				<Route path="/terms">

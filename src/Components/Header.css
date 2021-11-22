@@ -1,4 +1,4 @@
-.col-right {
+.links-wrapper {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -7,7 +7,7 @@
 .connect-btn {
 	background: transparent;
 	border: solid 2px;
-	border-radius: 5px;
+	border-radius: 10px;
 	font-size: 18px;
 	padding: 12px 8px;
 	width: 170px;
@@ -39,14 +39,14 @@
 	cursor: pointer;
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 768px) {
 	.connect-btn {
 		border: solid thin white;
 		border-radius: 5px;
 		font-size: 14px;
 		padding: 10px;
 		text-align: center;
-		width: 60%;
+		width: fit-content;
 	}
 
 	.header {

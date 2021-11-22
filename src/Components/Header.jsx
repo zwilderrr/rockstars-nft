@@ -113,7 +113,7 @@ export default function Header({ setWeb3, setProvider, setContract }) {
 				</Link>
 			</div>
 
-			<div className="col-right">
+			<div className="links-wrapper">
 				<div className="links">
 					{socialMediaLinks.map(link => (
 						<a
