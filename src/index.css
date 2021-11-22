@@ -19,3 +19,11 @@ a {
 	text-decoration: none;
 	color: inherit;
 }
+
+.external-link {
+	text-decoration: underline;
+}
+
+.not-visible {
+	visibility: hidden;
+}

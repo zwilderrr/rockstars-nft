@@ -80,16 +80,16 @@
 	}
 
 	.cta-text-wrapper {
-		padding: 50px 0;
+		padding: 70px 0 40px;
 	}
 
 	.first {
-		padding: 50px 0 40px;
+		padding: 50px 0 0;
 	}
 
 	.row {
 		display: block;
-		padding: 70px 0 0;
+		padding: 100px 0 50px;
 		width: 80%;
 	}
 }
