@@ -1,7 +1,7 @@
 .count-btn {
 	background: transparent;
 	border: solid thin transparent;
-	font-size: 26px;
+	font-size: 22px;
 	color: black;
 	transition: 0.1s;
 }
@@ -50,7 +50,7 @@
 	text-align: center;
 	align-items: center;
 	opacity: 0;
-	animation-delay: 2.6s;
+	animation: fadeIn 0.7s 2.6s forwards;
 }
 
 @media only screen and (max-width: 1440px) {
@@ -62,9 +62,6 @@
 @media only screen and (max-width: 1200px) {
 	.mint-btn {
 		font-size: 16px;
-	}
-	.count-btn {
-		font-size: 22px;
 	}
 }
 

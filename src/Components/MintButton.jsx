@@ -65,7 +65,7 @@ export function MintButton({ Contract, setTxHash, web3 }) {
 	const disableButtons = !web3 || !canMint;
 
 	return (
-		<div className="fadeIn mint-btn-wrapper">
+		<div className="mint-btn-wrapper">
 			<button className="mint-btn" onClick={onMint} disabled={disableButtons}>
 				{minting ? btnText : `Mint ${count} Rockstar${count > 1 ? "s" : ""}`}
 			</button>

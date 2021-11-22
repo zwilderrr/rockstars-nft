@@ -1,18 +1,14 @@
-.landing-wrapper {
-	width: 70%;
-	max-width: 1440px;
-	margin: 0 auto;
+.bgwhite {
+	background: ghostwhite;
 }
 
 .col-left {
 	flex: 3;
-	/* border: solid thin; */
 	box-sizing: border-box;
 }
 
 .col-right {
 	flex: 4;
-	/* border: solid thin; */
 }
 
 .col-left,
@@ -32,12 +28,19 @@
 	bottom: 0;
 }
 
-.row {
-	display: flex;
+.rare-text {
+	font-size: 24px;
+	font-weight: bolder;
+	padding-bottom: 10px;
 }
 
-.row.first {
-	min-height: 50vh;
+.row {
+	display: flex;
+	max-width: 1440px;
+	margin: 0 auto;
+	min-height: 40vh;
+	padding: 150px 0;
+	width: 70%;
 }
 
 .spacer {

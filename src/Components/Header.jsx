@@ -22,6 +22,10 @@ const contractAddress = {
 	rinkeby: "0x3025Cfb46Fc2E0f43468Fd5dDb107401d359e878",
 };
 
+export function scrollToTop() {
+	window.scroll({ top: 0, behavior: "smooth" });
+}
+
 export default function Header({ setWeb3, setProvider, setContract }) {
 	const LISTENERS = [
 		{ name: "accountsChanged", fn: handleAccountChanged },
@@ -89,10 +93,6 @@ export default function Header({ setWeb3, setProvider, setContract }) {
 		}
 
 		connectWallet();
-	}
-
-	function scrollToTop() {
-		window.scroll({ top: 0, behavior: "smooth" });
 	}
 
 	function formatAccount(account) {

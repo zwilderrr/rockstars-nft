@@ -13,6 +13,8 @@
 // 	},
 // ];
 
+import { scrollToTop } from "./Components/Header";
+
 export const socialMediaLinks = [
 	{
 		iconClass: "fab fa-discord",
@@ -46,12 +48,25 @@ export const ctaText = [
 	"Mint one now and live the dream",
 ];
 
-export const whyText = [
-	"When you mint a Rockstar, you join a community of people who are awesome, fun and friendly.",
-	"Rockstars are famous but treat their neighborhood barista really nicely. They're start-up founders and philosophers and revolutionaries but help clean up their local park even when no one is looking.",
-	"A Rockstar is everything. Because they're Rockstars--so they rock, but they're cartoons, so they're always there for you.",
-	"Mint one now and join the band.",
+export const rareText = [
+	"Rare and ultra-rare Rockstars are ready to rock",
+	<div
+		style={{ textDecoration: "underline", cursor: "pointer" }}
+		onClick={scrollToTop}
+	>
+		Mint yours now
+	</div>,
 ];
+
+export const whyText = [
+	"Gain access to a community of people who are epic, fun and friendly",
+];
+// export const whyText = [
+// 	"When you mint a Rockstar, you join a community of people who are awesome, fun and friendly.",
+// 	"Rockstars are famous but treat their neighborhood barista really nicely. They're start-up founders and philosophers and revolutionaries but help clean up their local park even when no one is looking.",
+// 	"A Rockstar is everything. Because they're Rockstars--so they rock, but they're cartoons, so they're always there for you.",
+// 	"Mint one now and join the band.",
+// ];
 // export const whyText = [
 // 	"When you mint a Rockstar, you join a community of people who are awesome, fun and friendly. You choose to live an epic life of humble grandeur.",
 // 	"Rockstars are famous but treat their neighborhood barista really nicely. They're start-up founders and philosophers and quiet revolutionaries but help clean up their local park even when no one is looking. They have a blast just being kind, good people.",
@@ -73,7 +88,7 @@ export const whyText = [
 // 	"Mint a Rockstar now and join the cause.",
 // ];
 // export const whyText = [
-// 	"Gain access to a community of people who are awesome, fun and friendly. Life is not a choice between being rich, successful, and famous but not a nice person doing not nice things, or being good and kind and giving, but feeling unimportant.",
+// 	"Gain access to a community of people who are epic, fun and friendly. Life is not a choice between being rich, successful, and famous but not a nice person doing not nice things, or being good and kind and giving, but feeling unimportant.",
 // 	"Life is about being famous, but treating the local barista really nicely. About being a revolutionary, but volunteering at the food bank with a smile. About being a paradigm-altering philosopher, but taking the time to tutor underprivileged kids. Or just about having integrity, being a kind, sincere, genuine person who does the right thing--but knows how to have a great time.",
 // 	"A Rockstar is both and everything. Because they're Rockstars--so they rock, but they're cartoons, so they're always there for you.",
 // 	"When you mint a rockstar, you mint a vote for humanity. You mint a vote for what's good and right in the world. You put yourself on the winning team and become a force of good in the world.",

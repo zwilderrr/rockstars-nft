@@ -8,7 +8,7 @@ export function Footer({ isMobile }) {
 	return (
 		<div
 			className="footer"
-			style={{ position: isMobile || isRootUrl ? "fixed" : "static" }}
+			// style={{ position: isMobile || isRootUrl ? "fixed" : "static" }}
 		>
 			<div className="logo-text">Rockstars</div>
 			<div className="links">
