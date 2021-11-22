@@ -13,11 +13,13 @@ function RockstarImage({ src }) {
 	);
 }
 
-export default function LandingPage({ web3, provider, Contract }) {
+export default function LandingPage({ web3, provider, Contract, isMobile }) {
 	return (
 		<div>
-			<div className="row-wrapper">
+			<div className="first">
 				<div className="row">
+					{isMobile && <RockstarImage src={rockstarMain} />}
+
 					<div className="col-left">
 						<div className="cta-text-wrapper">
 							{ctaText.map((line, i) => (
@@ -37,7 +39,7 @@ export default function LandingPage({ web3, provider, Contract }) {
 					<div className="spacer" />
 
 					<div className="col-right">
-						<RockstarImage src={rockstarMain} />
+						{!isMobile && <RockstarImage src={rockstarMain} />}
 					</div>
 				</div>
 			</div>
@@ -69,6 +71,7 @@ export default function LandingPage({ web3, provider, Contract }) {
 
 			<div>
 				<div className="row">
+					{isMobile && <RockstarImage src={multicolor} />}
 					<div className="col-left">
 						<div
 							className="cta-text-wrapper"
@@ -87,7 +90,7 @@ export default function LandingPage({ web3, provider, Contract }) {
 					</div>
 					<div className="spacer" />
 					<div className="col-right">
-						<RockstarImage src={multicolor} />
+						{!isMobile && <RockstarImage src={multicolor} />}
 					</div>
 				</div>
 			</div>

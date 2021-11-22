@@ -28,6 +28,10 @@
 	bottom: 0;
 }
 
+.first {
+	padding: 100px 0 50px;
+}
+
 .rare-text {
 	font-size: 24px;
 	font-weight: bolder;
@@ -48,7 +52,8 @@
 }
 
 @media only screen and (max-width: 1440px) {
-	.cta-text {
+	.cta-text,
+	.rare-text {
 		font-size: 16px;
 	}
 
@@ -58,11 +63,24 @@
 }
 
 @media only screen and (max-width: 1200px) {
-	.cta-text {
+	.cta-text,
+	.rare-text {
 		font-size: 14px;
 	}
 
 	.spacer {
 		flex: 0.5;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.cta-text-wrapper {
+		padding-top: 30px;
+	}
+	.row {
+		display: block;
+		min-height: none;
+		padding: 70px 0 0;
+		width: 80%;
 	}
 }

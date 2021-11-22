@@ -10,7 +10,7 @@ export default function App() {
 	const [web3, setWeb3] = useState();
 	const [provider, setProvider] = useState();
 	const [Contract, setContract] = useState();
-	const isMobile = window.screen.width <= 480;
+	const isMobile = window.screen.width <= 768;
 
 	return (
 		<Router>
@@ -22,7 +22,12 @@ export default function App() {
 
 			<Switch>
 				<Route path="/" exact>
-					<LandingPage web3={web3} provider={provider} Contract={Contract} />
+					<LandingPage
+						web3={web3}
+						provider={provider}
+						Contract={Contract}
+						isMobile={isMobile}
+					/>
 				</Route>
 
 				<Route path="/terms">
