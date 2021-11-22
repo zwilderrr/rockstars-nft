@@ -31,9 +31,8 @@ export default function LandingPage({ web3, provider, Contract, isMobile }) {
 									{line}
 								</div>
 							))}
-
-							<MintButton web3={web3} provider={provider} Contract={Contract} />
 						</div>
+						<MintButton web3={web3} provider={provider} Contract={Contract} />
 					</div>
 
 					<div className="spacer" />
@@ -51,10 +50,7 @@ export default function LandingPage({ web3, provider, Contract, isMobile }) {
 					</div>
 					<div className="spacer" />
 					<div className="col-left">
-						<div
-							className="cta-text-wrapper"
-							style={{ paddingBottom: "100px" }}
-						>
+						<div className="cta-text-wrapper">
 							{whyText.map((line, i) => (
 								<div
 									key={i}
@@ -73,10 +69,7 @@ export default function LandingPage({ web3, provider, Contract, isMobile }) {
 				<div className="row">
 					{isMobile && <RockstarImage src={multicolor} />}
 					<div className="col-left">
-						<div
-							className="cta-text-wrapper"
-							style={{ paddingBottom: "100px" }}
-						>
+						<div className="cta-text-wrapper">
 							{rareText.map((line, i) => (
 								<div
 									key={i}

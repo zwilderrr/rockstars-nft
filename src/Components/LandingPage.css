@@ -74,12 +74,21 @@
 }
 
 @media only screen and (max-width: 768px) {
-	.cta-text-wrapper {
-		padding-top: 30px;
+	.cta-text,
+	.rare-text {
+		font-size: 16px;
 	}
+
+	.cta-text-wrapper {
+		padding: 50px 0;
+	}
+
+	.first {
+		padding: 50px 0 40px;
+	}
+
 	.row {
 		display: block;
-		min-height: none;
 		padding: 70px 0 0;
 		width: 80%;
 	}
