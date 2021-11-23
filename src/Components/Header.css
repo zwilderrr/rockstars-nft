@@ -18,11 +18,25 @@
 	border-color: white;
 }
 
+.delay1s {
+	animation-delay: 2s;
+}
+
 .header {
 	align-items: center;
+	background: rgb(255, 161, 213);
 	display: flex;
 	justify-content: space-between;
-	padding: 10px 50px;
+	padding: 20px 50px;
+	position: sticky;
+	top: 0;
+	z-index: 1;
+	transition-duration: 0.2s;
+}
+
+.header.shadow {
+	box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+	padding: 0px 50px;
 }
 
 .link {
@@ -46,11 +60,18 @@
 		font-size: 14px;
 		padding: 10px;
 		text-align: center;
-		width: fit-content;
+		width: 135px;
 	}
 
 	.header {
 		padding: 10px 20px;
+	}
+
+	.header.shadow {
+		padding: 0px 20px;
+	}
+
+	.header.shadow {
 	}
 
 	.link {

@@ -59,7 +59,7 @@ export const rareText = [
 ];
 
 export const whyText = [
-	"Gain access to a community of people who are epic, fun and friendly",
+	"Gain instant access to a community of epic people living epic lives",
 ];
 // export const whyText = [
 // 	"When you mint a Rockstar, you join a community of people who are awesome, fun and friendly.",

@@ -23,10 +23,10 @@ const contractAddress = {
 };
 
 export function scrollToTop() {
-	window.scroll({ top: 0, behavior: "smooth" });
+	window.scroll({ top: 200, behavior: "smooth" });
 }
 
-export default function Header({ setWeb3, setProvider, setContract }) {
+export default function Header({ setWeb3, setProvider, setContract, shrink }) {
 	const LISTENERS = [
 		{ name: "accountsChanged", fn: handleAccountChanged },
 		{ name: "chainChanged", fn: handleChainChanged },
@@ -84,7 +84,6 @@ export default function Header({ setWeb3, setProvider, setContract }) {
 			await web3.eth.requestAccounts();
 			return;
 		}
-		console.log("heyy d");
 
 		if (connectBtnText === INSTALL_METAMASK) {
 			window.open(METAMASK_CHROME_URL, "_blank").focus();
@@ -104,7 +103,7 @@ export default function Header({ setWeb3, setProvider, setContract }) {
 	}
 
 	return (
-		<div className="header">
+		<div className={`header ${shrink ? "shadow" : ""}`}>
 			<div className="logo">
 				<Link to="/">
 					<div className="logo-text" onClick={scrollToTop}>

@@ -6,16 +6,18 @@ import { ctaText, rareText, whyText } from "../content";
 import { MintButton } from "./MintButton";
 import { useEffect, useRef, useState } from "react";
 
-const useOnScreen = (ref, rootMargin = "0px") => {
+const useOnScreen = (ref, cb) => {
 	const [isVisible, setIsVisible] = useState(false);
 
 	useEffect(() => {
 		const observer = new IntersectionObserver(
 			([entry]) => {
+				cb && cb(!entry.isIntersecting);
 				setIsVisible(entry.isIntersecting);
 			},
 			{
-				rootMargin,
+				rootMargin: "0px",
+				threshold: cb ? 0.8 : 0,
 			}
 		);
 
@@ -33,19 +35,40 @@ const useOnScreen = (ref, rootMargin = "0px") => {
 	return isVisible;
 };
 
-function RockstarImage({ src, isVisible = true }) {
+function useSetShow(isVisible) {
+	const [show, setShow] = useState(false);
+
+	useEffect(() => {
+		isVisible && setShow(true);
+	}, [isVisible]);
+
+	return show;
+}
+
+function RockstarImage({ src, show = true }) {
 	return (
-		<div className={`${isVisible ? "fadeIn" : "not-visible"}`}>
+		<div className={`${show ? "fadeIn" : "not-visible"}`}>
 			<img src={src} alt="rockstar" width="100%" />
 		</div>
 	);
 }
 
-export default function LandingPage({ web3, provider, Contract, isMobile }) {
+export default function LandingPage({
+	web3,
+	provider,
+	Contract,
+	isMobile,
+	setShrinkHeader,
+}) {
 	const ref1 = useRef(null);
 	const ref2 = useRef(null);
+	const ref3 = useRef(null);
 	const isVisible1 = useOnScreen(ref1);
 	const isVisible2 = useOnScreen(ref2);
+	useOnScreen(ref3, setShrinkHeader);
+
+	const show1 = useSetShow(isVisible1);
+	const show2 = useSetShow(isVisible2);
 
 	function getHelperText() {
 		if (isMobile) {
@@ -69,7 +92,7 @@ export default function LandingPage({ web3, provider, Contract, isMobile }) {
 
 	return (
 		<div>
-			<div className="first">
+			<div className="first" ref={ref3}>
 				<div className="row">
 					{isMobile && <RockstarImage src={rockstarMain} />}
 
@@ -100,16 +123,16 @@ export default function LandingPage({ web3, provider, Contract, isMobile }) {
 			<div className="bgwhite">
 				<div className="row">
 					<div className="col-right">
-						<RockstarImage src={heat} isVisible={isVisible1} />
+						<RockstarImage src={heat} show={show1} />
 					</div>
 					<div className="spacer" />
-					<div className="col-left" ref={ref1}>
-						<div className="cta-text-wrapper">
+					<div className="col-left">
+						<div className="body-text-wrapper" ref={ref1}>
 							{whyText.map((line, i) => (
 								<div
 									key={i}
-									style={{ animationDelay: `${0.5 + 0.6 * i}s` }}
-									className={`rare-text ${isVisible1 ? "fadeInUp" : ""}`}
+									style={{ animationDelay: ".5s" }}
+									className={`body-text ${show1 ? "fadeInUp" : ""}`}
 								>
 									{line}
 								</div>
@@ -121,14 +144,14 @@ export default function LandingPage({ web3, provider, Contract, isMobile }) {
 
 			<div>
 				<div className="row">
-					{isMobile && <RockstarImage src={multicolor} />}
-					<div className="col-left" ref={ref2}>
-						<div className="cta-text-wrapper">
+					{isMobile && <RockstarImage src={multicolor} show={show2} />}
+					<div className="col-left">
+						<div className="body-text-wrapper" ref={ref2}>
 							{rareText.map((line, i) => (
 								<div
 									key={i}
-									style={{ animationDelay: `${0.5 + 0.6 * i}s` }}
-									className={`rare-text ${isVisible2 ? "fadeInUp" : ""}`}
+									style={{ animationDelay: ".5s" }}
+									className={`body-text ${show2 ? "fadeInUp" : ""}`}
 								>
 									{line}
 								</div>
@@ -137,7 +160,7 @@ export default function LandingPage({ web3, provider, Contract, isMobile }) {
 					</div>
 					<div className="spacer" />
 					<div className="col-right">
-						{!isMobile && <RockstarImage src={multicolor} />}
+						{!isMobile && <RockstarImage src={multicolor} show={show2} />}
 					</div>
 				</div>
 			</div>

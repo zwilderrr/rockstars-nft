@@ -2,6 +2,16 @@
 	background: ghostwhite;
 }
 
+.body-text {
+	font-size: 20px;
+	font-weight: bolder;
+	padding-bottom: 10px;
+}
+
+.body-text-wrapper {
+	padding-bottom: 20%;
+}
+
 .col-left {
 	flex: 3;
 	box-sizing: border-box;
@@ -26,16 +36,11 @@
 
 .cta-text-wrapper {
 	bottom: 0;
+	padding-bottom: 10px;
 }
 
 .first {
 	padding: 100px 0 50px;
-}
-
-.rare-text {
-	font-size: 24px;
-	font-weight: bolder;
-	padding-bottom: 10px;
 }
 
 .row {
@@ -52,9 +57,11 @@
 }
 
 @media only screen and (max-width: 1440px) {
-	.cta-text,
-	.rare-text {
+	.cta-text {
 		font-size: 16px;
+	}
+	.body-text {
+		font-size: 20px;
 	}
 
 	.spacer {
@@ -63,9 +70,11 @@
 }
 
 @media only screen and (max-width: 1200px) {
-	.cta-text,
-	.rare-text {
+	.cta-text {
 		font-size: 14px;
+	}
+	.body-text {
+		font-size: 16px;
 	}
 
 	.spacer {
@@ -74,13 +83,13 @@
 }
 
 @media only screen and (max-width: 768px) {
-	.cta-text,
-	.rare-text {
+	.cta-text {
 		font-size: 16px;
 	}
 
-	.cta-text-wrapper {
-		padding: 70px 0 40px;
+	.cta-text-wrapper,
+	.body-text-wrapper {
+		padding: 50px 0 20px;
 	}
 
 	.first {

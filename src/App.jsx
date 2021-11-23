@@ -10,6 +10,7 @@ export default function App() {
 	const [web3, setWeb3] = useState();
 	const [provider, setProvider] = useState();
 	const [Contract, setContract] = useState();
+	const [shrinkHeader, setShrinkHeader] = useState(false);
 	const isMobile = window.screen.width <= 768;
 
 	return (
@@ -18,6 +19,7 @@ export default function App() {
 				setWeb3={setWeb3}
 				setProvider={setProvider}
 				setContract={setContract}
+				shrink={shrinkHeader}
 			/>
 
 			<Switch>
@@ -27,6 +29,7 @@ export default function App() {
 						provider={provider}
 						Contract={Contract}
 						isMobile={isMobile}
+						setShrinkHeader={setShrinkHeader}
 					/>
 				</Route>
 
