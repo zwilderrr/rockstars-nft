@@ -52,7 +52,7 @@ export const rareText = [
 	"Rare and ultra-rare Rockstars are ready to rock",
 	<div
 		style={{ textDecoration: "underline", cursor: "pointer" }}
-		onClick={scrollToTop}
+		onClick={() => scrollToTop(200)}
 	>
 		Mint yours now
 	</div>,

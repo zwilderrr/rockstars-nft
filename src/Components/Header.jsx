@@ -22,8 +22,8 @@ const contractAddress = {
 	rinkeby: "0x3025Cfb46Fc2E0f43468Fd5dDb107401d359e878",
 };
 
-export function scrollToTop() {
-	window.scroll({ top: 200, behavior: "smooth" });
+export function scrollToTop(top = 0) {
+	window.scroll({ top, behavior: "smooth" });
 }
 
 export default function Header({ setWeb3, setProvider, setContract, shrink }) {
@@ -106,7 +106,7 @@ export default function Header({ setWeb3, setProvider, setContract, shrink }) {
 		<div className={`header ${shrink ? "shadow" : ""}`}>
 			<div className="logo">
 				<Link to="/">
-					<div className="logo-text" onClick={scrollToTop}>
+					<div className="logo-text" onClick={() => scrollToTop(0)}>
 						R
 					</div>
 				</Link>
