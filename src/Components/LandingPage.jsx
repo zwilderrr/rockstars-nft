@@ -6,7 +6,7 @@ import { ctaText, rareText, whyText } from "../content";
 import { MintButton } from "./MintButton";
 import { useEffect, useRef, useState } from "react";
 
-const useOnScreen = (ref, cb) => {
+export const useOnScreen = (ref, cb) => {
 	const [isVisible, setIsVisible] = useState(false);
 
 	useEffect(() => {

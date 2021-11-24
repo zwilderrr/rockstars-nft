@@ -1,13 +1,18 @@
+import { useRef } from "react";
+import { useOnScreen } from "./LandingPage";
 import "./TermsAndConditions.css";
 
-export function TermsAndConditions() {
+export function TermsAndConditions({ setShrinkHeader }) {
+	const ref = useRef(null);
+	useOnScreen(ref, setShrinkHeader);
+
 	return (
-		<div class="terms-container">
-			<div class="container">
-				<div class="row">
-					<div class="col-12">
-						<h1>ROCKSTARS TERMS &amp; CONDITIONS</h1>
-						<p class="terms-description">
+		<div className="terms-container">
+			<div>
+				<div>
+					<div>
+						<h1 ref={ref}>ROCKSTARS TERMS &amp; CONDITIONS</h1>
+						<p>
 							Rockstars is a collection of digital artworks (NFTs) running on
 							the Ethereum network. This website is only an interface allowing
 							participants to purchase digital collectibles. Users are entirely
@@ -17,14 +22,14 @@ export function TermsAndConditions() {
 							Rockstars smart contract runs on the Ethereum network, there is no
 							ability to undo, reverse, or restore any transactions.
 						</p>
-						<p class="terms-description">
+						<p>
 							This website and its connected services are provided “as is” and
 							“as available” without warranty of any kind. By using this website
 							you are accepting sole responsibility for any and all transactions
 							involving Rockstars digital collectibles.
 						</p>
 						<h2>1. Ownership</h2>
-						<p class="terms-description">
+						<p>
 							A. You Own the NFT. Each Rockstar is an NFT on the Ethereum
 							blockchain. When you purchase an NFT, you own the underlying
 							Rockstar, the Art, completely. Ownership of the NFT is mediated
@@ -32,7 +37,7 @@ export function TermsAndConditions() {
 							point may we seize, freeze, or otherwise modify the ownership of
 							any Rockstar.
 						</p>
-						<p class="terms-description">
+						<p>
 							B. Personal Use. Subject to your continued compliance with these
 							Terms, Rockstars grants you a worldwide, royalty-free license to
 							use, copy, and display the purchased Art, along with any
@@ -51,7 +56,7 @@ export function TermsAndConditions() {
 							the Art is no longer visible once the owner of the Rockstar leaves
 							the website/application.
 						</p>
-						<p class="terms-description">
+						<p>
 							C. Commercial Use. Subject to your continued compliance with these
 							Terms, Rockstars grants you an unlimited, worldwide license to
 							use, copy, and display the purchased Art for the purpose of
@@ -74,14 +79,14 @@ export function TermsAndConditions() {
 							website/application; or (iii) earning revenue from any of the
 							foregoing.
 						</p>
-						<p class="terms-description">
+						<p>
 							D. Ownership. Other than the rights to the Art, nothing herein
 							gives you any rights to any other trademarks or other intellectual
 							property rights belonging to RockstarsNFT including, without
 							limitation, RockstarsNFT, and the associated logos. All of these
 							rights are expressly reserved in the name of RockstarsNFT.
 						</p>
-						<p class="terms-description">
+						<p>
 							E. Feedback. You may choose to submit comments, bug reports, ideas
 							or other feedback about the Site, including without limitation
 							about how to improve the Site (collectively, “Feedback”). By
@@ -92,7 +97,7 @@ export function TermsAndConditions() {
 							Feedback for any purpose.
 						</p>
 						<h2>2. Your Obligations</h2>
-						<p class="terms-description">
+						<p>
 							You are solely responsible for your own conduct while accessing or
 							using the Site, and for any consequences thereof. You agree to use
 							the Site only for purposes that are legal, proper and in
@@ -124,7 +129,7 @@ export function TermsAndConditions() {
 							or terminate your user account.
 						</p>
 						<h2>3. Fees and Payment</h2>
-						<p class="terms-description">
+						<p>
 							A. If you elect to purchase a Rockstar through the Site, any
 							financial transactions that you engage in will be conducted solely
 							through the Ethereum network. We will have no insight into or
@@ -134,7 +139,7 @@ export function TermsAndConditions() {
 							that may arise as a result of any transactions that you engage or
 							any other transactions that you conduct via the Ethereum network.
 						</p>
-						<p class="terms-description">
+						<p>
 							B. Ethereum requires the payment of a transaction fee (a “Gas
 							Fee”) for every transaction that occurs on the Ethereum network.
 							The Gas Fee funds the network of computers that run the
@@ -142,7 +147,7 @@ export function TermsAndConditions() {
 							pay a Gas Fee for each transaction.
 						</p>
 						<h2>4. Disclaimers</h2>
-						<p class="terms-description">
+						<p>
 							A. YOU EXPRESSLY UNDERSTAND AND AGREE THAT YOUR ACCESS TO AND USE
 							OF THE SITE IS AT YOUR SOLE RISK, AND THAT THE SITE IS PROVIDED
 							"AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, WHETHER
@@ -166,20 +171,20 @@ export function TermsAndConditions() {
 							CONTRACTS WITH CONSUMERS, SO SOME OR ALL OF THE ABOVE EXCLUSIONS
 							MAY NOT APPLY TO YOU.
 						</p>
-						<p class="terms-description">
+						<p>
 							B. YOU ACCEPT THE INHERENT SECURITY RISKS OF PROVIDING INFORMATION
 							AND DEALING ONLINE OVER THE INTERNET, AND AGREE THAT WE HAVE NO
 							LIABILITY OR RESPONSIBILITY FOR ANY BREACH OF SECURITY UNLESS IT
 							IS DUE TO OUR WILLFULL MISCONDUCT.
 						</p>
-						<p class="terms-description">
+						<p>
 							C. WE WILL NOT BE RESPONSIBLE OR LIABLE TO YOU FOR ANY LOSSES YOU
 							INCUR AS THE RESULT OF YOUR USE OF THE ETHEREUM NETWORK NOR DO WE
 							HAVE NO CONTROL OVER AND MAKE NO GUARANTEES REGARDING ANY SMART
 							CONTRACTS.
 						</p>
 						<h2>5. Limitation of Liability</h2>
-						<p class="terms-description">
+						<p>
 							A. YOU UNDERSTAND AND AGREE THAT WE WILL NOT BE LIABLE TO YOU OR
 							TO ANY THIRD PARTY FOR ANY INDIRECT, INCIDENTAL, SPECIAL,
 							CONSEQUENTIAL, OR EXEMPLARY DAMAGES WHICH YOU MAY INCUR, HOWSOEVER
@@ -190,7 +195,7 @@ export function TermsAndConditions() {
 							OTHER INTANGIBLE LOSS, EVEN IF WE HAVE BEEN ADVISED OF THE
 							POSSIBILITY OF SUCH DAMAGES.
 						</p>
-						<p class="terms-description">
+						<p>
 							B. YOU AGREE THAT OUR TOTAL, AGGREGATE LIABILITY TO YOU FOR ANY
 							AND ALL CLAIMS ARISING OUT OF OR RELATING TO THESE TERMS OR YOUR
 							ACCESS TO OR USE OF (OR YOUR INABILITY TO ACCESS OR USE) ANY
@@ -199,7 +204,7 @@ export function TermsAndConditions() {
 							AMOUNTS YOU ACTUALLY PAID US UNDER THESE TERMS IN THE 12 MONTH
 							PERIOD PRECEDING THE DATE THE CLAIM AROSE, OR (B) $500.
 						</p>
-						<p class="terms-description">
+						<p>
 							C. YOU ACKNOWLEDGE AND AGREE THAT WE HAVE MADE THE SITE AVAILABLE
 							TO YOU AND ENTERED INTO THESE TERMS IN RELIANCE UPON THE WARRANTY
 							DISCLAIMERS AND LIMITATIONS OF LIABILITY SET FORTH HEREIN. WE
@@ -207,10 +212,8 @@ export function TermsAndConditions() {
 							LIMITATIONS.
 						</p>
 						<h2>6. Risk Assumption</h2>
-						<p class="terms-description">
-							You accept and acknowledge each of the following:
-						</p>
-						<p class="terms-description">
+						<p>You accept and acknowledge each of the following:</p>
+						<p>
 							A. To the extent that you sell your Rockstar NFT, please be aware
 							that the prices of NFTs are extremely volatile and fluctuations in
 							the prices of other NFTs and impact the price of your Rockstar
@@ -218,7 +221,7 @@ export function TermsAndConditions() {
 							such as Rockstar should not be considered an investment.&nbsp;You
 							assume all risks in that connection.
 						</p>
-						<p class="terms-description">
+						<p>
 							B. Ownership of a Rockstar confers ownership of digital artwork
 							only. Accordingly, no information on this Site (or any other
 							documents mentioned therein) is or may be considered to be advice
@@ -233,27 +236,27 @@ export function TermsAndConditions() {
 							and the associated art is in compliance with laws and regulations
 							in your jurisdiction.
 						</p>
-						<p class="terms-description">
+						<p>
 							C. You assume all risks associated with using an Internet-based
 							currency, including, but not limited to, the risk of hardware,
 							software and Internet connections, the risk of malicious software
 							introduction, and the risk that third parties may obtain
 							unauthorized access to information stored within your wallet.
 						</p>
-						<p class="terms-description">
+						<p>
 							D. NFTs, cryptocurrencies and blockchain technology are relatively
 							new and the regulatory landscape is unsettled.&nbsp; New
 							regulations could negatively impact such technologies impacting
 							the value for your Rockstar.&nbsp;You understand and accept all
 							risk in that regard.
 						</p>
-						<p class="terms-description">
+						<p>
 							E. You assume all responsibility for any adverse effects of
 							disruptions or other issues impacting Ethereum or the Ethereum
 							platform.
 						</p>
 						<h2>7. Indemnification</h2>
-						<p class="terms-description">
+						<p>
 							You agree to hold harmless and indemnify Rockstars and its
 							subsidiaries, affiliates, officers, agents, employees,
 							advertisers, licensors, suppliers or partners from and against any
@@ -265,7 +268,7 @@ export function TermsAndConditions() {
 							with your access to or use of the Site.
 						</p>
 						<h2>8. Changes to the Terms and Conditions</h2>
-						<p class="terms-description">
+						<p>
 							We may make changes to the Terms at our discretion. Please check
 							these Terms periodically for changes. Any changes to the Terms
 							will apply on the date that they are made, and your continued
@@ -274,7 +277,7 @@ export function TermsAndConditions() {
 							revised Terms, you may not access or use the Site.
 						</p>
 						<h2>9. Children</h2>
-						<p class="terms-description">
+						<p>
 							Our Site is not intended for children.&nbsp; You must be at least
 							18 years old to access this Site or purchase a Rockstar. If you
 							are under 18 years old you are not permitted to use this Site for
@@ -282,7 +285,7 @@ export function TermsAndConditions() {
 							that you are at least 18 years of age.
 						</p>
 						<h2>10. Dispute Resolution; Arbitration</h2>
-						<p class="terms-description">
+						<p>
 							All disputes arising out of or in connection with these Terms,
 							including without limitation your access or use of the Site, or to
 							any products sold or distributed through the Site, will be
@@ -298,7 +301,7 @@ export function TermsAndConditions() {
 							Notwithstanding the foregoing, we may seek and obtain injunctive
 							relief in any jurisdiction in any court of competent jurisdiction.
 						</p>
-						<p class="terms-description">
+						<p>
 							WITH RESPECT TO ANY DISPUTE ARISING OUT OF OR RELATED TO THESE
 							TERMS, INCLUDING WITHOUT LIMITATION DISPUTES RELATED TO THE SITE
 							OR ANY PRODUCTS SOLD OR DISTRIBUTED THROUGH THE SITE, OR THE SMART

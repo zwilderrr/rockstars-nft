@@ -34,7 +34,7 @@ export default function App() {
 				</Route>
 
 				<Route path="/terms">
-					<TermsAndConditions />
+					<TermsAndConditions setShrinkHeader={setShrinkHeader} />
 				</Route>
 			</Switch>
 

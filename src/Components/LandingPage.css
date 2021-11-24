@@ -40,14 +40,14 @@
 }
 
 .first {
-	padding: 100px 0 50px;
+	padding: 50px 0;
 }
 
 .row {
 	display: flex;
 	max-width: 1440px;
 	margin: 0 auto;
-	min-height: 40vh;
+	min-height: 35vh;
 	padding: 150px 0;
 	width: 70%;
 }
