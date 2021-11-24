@@ -7,7 +7,7 @@ import { MintButton } from "./MintButton";
 import { useEffect, useRef, useState } from "react";
 import { SuccessModal } from "./SuccessModal";
 
-export const useOnScreen = (ref, cb) => {
+export const useOnScreen = (ref, cb, isMobile = false) => {
 	const [isVisible, setIsVisible] = useState(false);
 
 	useEffect(() => {
@@ -18,7 +18,8 @@ export const useOnScreen = (ref, cb) => {
 			},
 			{
 				rootMargin: "0px",
-				threshold: cb ? 0.8 : 0,
+				threshold: cb ? (isMobile ? 0.6 : 0.8) : 0,
+				// threshold: cb ? 0.8 : 0,
 			}
 		);
 
@@ -29,7 +30,7 @@ export const useOnScreen = (ref, cb) => {
 		}
 
 		return () => {
-			observer.unobserve(currentElement);
+			observer && observer.unobserve(currentElement);
 		};
 	}, []);
 
@@ -66,7 +67,7 @@ export default function LandingPage({
 	const ref3 = useRef(null);
 	const isVisible1 = useOnScreen(ref1);
 	const isVisible2 = useOnScreen(ref2);
-	useOnScreen(ref3, setShrinkHeader);
+	useOnScreen(ref3, setShrinkHeader, true);
 
 	const show1 = useSetShow(isVisible1);
 	const show2 = useSetShow(isVisible2);
