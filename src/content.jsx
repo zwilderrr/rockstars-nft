@@ -1,18 +1,3 @@
-// export const sections = [
-// 	{
-// 		title: "about",
-// 		content,
-// 	},
-// 	{
-// 		title: "roadmap",
-// 		content,
-// 	},
-// 	{
-// 		title: "faq",
-// 		content,
-// 	},
-// ];
-
 import { scrollToTop } from "./Components/Header";
 
 export const socialMediaLinks = [
@@ -49,7 +34,7 @@ export const ctaText = [
 ];
 
 export const rareText = [
-	"Rare and ultra-rare Rockstars are ready to rock",
+	"Rare and ultra-rare Rockstars are ready to rock and roll",
 	<div
 		style={{ textDecoration: "underline", cursor: "pointer" }}
 		onClick={() => scrollToTop(200)}

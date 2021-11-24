@@ -2,9 +2,10 @@ import "./LandingPage.css";
 import rockstarMain from "../images/rockstar-main.png";
 import multicolor from "../images/multicolor.png";
 import heat from "../images/heat.png";
-import { ctaText, rareText, whyText } from "../content";
+import { ctaText, rareText, tweet, whyText } from "../content";
 import { MintButton } from "./MintButton";
 import { useEffect, useRef, useState } from "react";
+import { SuccessModal } from "./SuccessModal";
 
 export const useOnScreen = (ref, cb) => {
 	const [isVisible, setIsVisible] = useState(false);
@@ -70,6 +71,15 @@ export default function LandingPage({
 	const show1 = useSetShow(isVisible1);
 	const show2 = useSetShow(isVisible2);
 
+	const [txHash, setTxHash] = useState();
+	const [modalOpen, setModalOpen] = useState(false);
+
+	useEffect(() => {
+		if (txHash) {
+			setModalOpen(true);
+		}
+	}, [txHash]);
+
 	function getHelperText() {
 		if (isMobile) {
 			return (
@@ -108,7 +118,12 @@ export default function LandingPage({
 								</div>
 							))}
 						</div>
-						<MintButton web3={web3} provider={provider} Contract={Contract} />
+						<MintButton
+							web3={web3}
+							provider={provider}
+							Contract={Contract}
+							setTxHash={setTxHash}
+						/>
 					</div>
 
 					<div className="spacer" />
@@ -164,6 +179,12 @@ export default function LandingPage({
 					</div>
 				</div>
 			</div>
+			<SuccessModal
+				modalOpen={modalOpen}
+				txHash={txHash}
+				setModalOpen={setModalOpen}
+				isMobile={isMobile}
+			/>
 		</div>
 	);
 }

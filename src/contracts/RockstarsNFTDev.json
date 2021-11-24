@@ -84798,10 +84798,16 @@
       "links": {},
       "address": "0x085B89fb455457cFA0508295b9AE5daF511809F3",
       "transactionHash": "0x3f27525135b45c61e5179792acce17022af7abf01a8007426464e0c7332b65dc"
+    },
+    "1637723593812": {
+      "events": {},
+      "links": {},
+      "address": "0x92Ec4d055a33332D3421aF3E3e6a6bc5E51339D4",
+      "transactionHash": "0x925aa7447e3211c850b330f8771112c976306c5071863da28fc144686f3bebf3"
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-11-19T00:10:39.605Z",
+  "updatedAt": "2021-11-24T03:13:27.431Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

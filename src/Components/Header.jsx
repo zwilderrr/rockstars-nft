@@ -20,6 +20,7 @@ const METAMASK_CHROME_URL =
 const contractAddress = {
 	ropsten: "0x01C2349afCB380cD98521C1Dcf78fe133041E766",
 	rinkeby: "0x3025Cfb46Fc2E0f43468Fd5dDb107401d359e878",
+	local: "0x92Ec4d055a33332D3421aF3E3e6a6bc5E51339D4",
 };
 
 export function scrollToTop(top = 0) {
@@ -47,7 +48,7 @@ export default function Header({ setWeb3, setProvider, setContract, shrink }) {
 		const [selectedAccount] = await web3.eth.getAccounts();
 
 		setContract(
-			new web3.eth.Contract(RockstarsNFTDevJSON.abi, contractAddress.rinkeby)
+			new web3.eth.Contract(RockstarsNFTDevJSON.abi, contractAddress.local)
 		);
 		setConnectBtnText(formatAccount(selectedAccount) || CONNECT_WALLET);
 		setWeb3(web3);
