@@ -99,6 +99,25 @@ export default function LandingPage({
 				</div>
 			);
 		}
+
+		if (!web3) {
+			return (
+				<div className="fadeIn helper-text" style={{ animationDelay: "2.6s" }}>
+					Looks like you don't have a crypto wallet installed on your browser.
+					Watch the{" "}
+					<a
+						href="https://metamask.io/download"
+						className="external-link"
+						alt="metamask download"
+						target="_blank"
+						rel="noreferrer"
+					>
+						how to
+					</a>{" "}
+					video posted on Twitter to get started.
+				</div>
+			);
+		}
 	}
 
 	return (
@@ -125,13 +144,14 @@ export default function LandingPage({
 							Contract={Contract}
 							setTxHash={setTxHash}
 						/>
+						{getHelperText()}
 					</div>
 
 					<div className="spacer" />
 
 					<div className="col-right">
 						{!isMobile && <RockstarImage src={rockstarMain} />}
-						{getHelperText()}
+						{isMobile && getHelperText()}
 					</div>
 				</div>
 			</div>

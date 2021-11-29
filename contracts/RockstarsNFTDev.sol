@@ -1213,11 +1213,11 @@ contract RockstarsNFTDev is ERC721Enumerable, Ownable {
   string public baseURI;
   string public baseExtension = ".json";
   string public metaDataFolder = "metadata/";
-  uint256 public cost = .0001 ether;
-  uint256 public maxSupply = 100;
-  uint256 public maxMintAmount = 10;
+  uint256 public cost = 1 ether;
+  uint256 public maxSupply = 10000;
+  uint256 public maxMintAmount = 5;
   bool public paused = false;
-  mapping(address => bool) public whitelisted;
+  mapping(address => bool) public allowlist;
 
   constructor(
     string memory _name,
@@ -1225,7 +1225,7 @@ contract RockstarsNFTDev is ERC721Enumerable, Ownable {
     string memory _initBaseURI
   ) ERC721(_name, _symbol) {
     setBaseURI(_initBaseURI);
-    mint(msg.sender, 10);
+    mint(msg.sender, 5);
   }
 
   // internal
@@ -1242,7 +1242,7 @@ contract RockstarsNFTDev is ERC721Enumerable, Ownable {
     require(supply + _mintAmount <= maxSupply, "Mint amount exceeds max supply");
 
     if (msg.sender != owner()) {
-        if(whitelisted[msg.sender] != true) {
+        if(allowlist[msg.sender] != true) {
           require(msg.value >= cost * _mintAmount, "Not enough ETH sent");
         }
     }
@@ -1304,12 +1304,16 @@ contract RockstarsNFTDev is ERC721Enumerable, Ownable {
     paused = _state;
   }
 
- function whitelistUser(address _user) public onlyOwner {
-    whitelisted[_user] = true;
+  function allowlistUser(address[] memory _arr) public onlyOwner {
+    for (uint256 i; i < _arr.length; i++) {
+      allowlist[_arr[i]] = true;
+    }
   }
 
-  function removeWhitelistUser(address _user) public onlyOwner {
-    whitelisted[_user] = false;
+  function removeAllowlistUser(address[] memory _arr) public onlyOwner {
+    for (uint256 i; i < _arr.length; i++) {
+      allowlist[_arr[i]] = false;
+    }
   }
 
   function withdraw() public payable onlyOwner {

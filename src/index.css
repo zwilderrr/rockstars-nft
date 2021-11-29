@@ -9,6 +9,15 @@ button {
 	font-family: "Open Sans", sans-serif;
 }
 
+button:disabled {
+	cursor: default !important;
+}
+
+button:disabled:hover {
+	transform: none !important;
+	box-shadow: none !important;
+}
+
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 		monospace;

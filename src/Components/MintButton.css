@@ -11,6 +11,14 @@
 	cursor: pointer;
 }
 
+.count-btn:disabled {
+	color: black;
+	cursor: default;
+}
+.count-btn:hover:disabled {
+	color: black;
+}
+
 .count-btn-wrapper {
 	display: flex;
 	flex-direction: column;
@@ -28,6 +36,11 @@
 	margin-right: 10px;
 	transition: all 0.3s ease;
 	width: 80%;
+}
+
+.mint-btn:disabled {
+	color: gray;
+	border-color: gray;
 }
 
 .mint-btn:hover {

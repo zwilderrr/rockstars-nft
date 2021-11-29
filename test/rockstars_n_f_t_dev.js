@@ -10,13 +10,13 @@ contract("RockstarsNFTDev", function (accounts) {
 		owner = await instance.owner();
 	});
 
-	it("should mint 10 to the owner", async () => {
+	it("should mint 5 to the owner", async () => {
 		const walletOfOwner = await instance.walletOfOwner(owner);
-		assert.equal(walletOfOwner.length, 10);
+		assert.equal(walletOfOwner.length, 5);
 	});
 
-	it("should successfully mint up to 10 at a time", async () => {
-		for (let i = 2; i <= 10; i++) {
+	it("should successfully mint up to 5 at a time", async () => {
+		for (let i = 2; i <= 5; i++) {
 			const from = accounts[i - 1];
 			await instance.mint(from, i);
 			const walletOfOwner = await instance.walletOfOwner(from);
@@ -24,11 +24,11 @@ contract("RockstarsNFTDev", function (accounts) {
 		}
 	});
 
-	it("should not permit minting more than 10 at a time", async () => {
+	it("should not permit minting more than 5 at a time", async () => {
 		await truffleAssert.reverts(
-			instance.mint(owner, 11),
+			instance.mint(accounts[1], 6),
 			"revert",
-			"Can't mint more than 10"
+			"Can't mint more than 5"
 		);
 	});
 
@@ -58,87 +58,97 @@ contract("RockstarsNFTDev", function (accounts) {
 
 		await instance.mint(owner, 1);
 	});
+
+	it("should accept an array of allowlisted accounts", async () => {
+		// should fail because accounts[3] isn't sending any ether with the request
+		await truffleAssert.reverts(instance.mint(accounts[3], 1), "revert");
+
+		const allowlist = [accounts[3], accounts[4]];
+
+		await instance.allowlistUser(allowlist);
+
+		await instance.mint(accounts[3]);
+	});
 });
 
-// describe("Test web3", function () {
-// 	let instance;
-// 	let owner;
-// 	let accounts;
-// 	let Contract;
+describe("Test web3", function () {
+	let instance;
+	let owner;
+	let accounts;
+	let Contract;
 
-// 	before("setup the contract instance and owner", async () => {
-// 		instance = await RockstarsNFTDev.deployed();
-// 		owner = await instance.owner();
-// 		accounts = await web3.eth.getAccounts();
-// 		Contract = new web3.eth.Contract(
-// 			RockstarsNFTDev._json.abi,
-// 			instance.address
-// 		);
-// 	});
+	before("setup the contract instance and owner", async () => {
+		instance = await RockstarsNFTDev.deployed();
+		owner = await instance.owner();
+		accounts = await web3.eth.getAccounts();
+		Contract = new web3.eth.Contract(
+			RockstarsNFTDev._json.abi,
+			instance.address
+		);
+	});
 
-// 	it("should successfully mint up to 5 at a time", async () => {
-// 		const cost = await Contract.methods.cost().call();
+	it("should successfully mint up to 5 at a time", async () => {
+		const cost = await Contract.methods.cost().call();
+		// it("should successfully mint up to 5 at a time", async () => {
+		for (let i = 2; i <= 5; i++) {
+			const from = accounts[i - 1];
+			const value = cost * i;
+			let beforeMint = await instance.walletOfOwner(from);
+			await Contract.methods.mint(from, i).send({ from, value, gas: 1000000 });
+			const afterMint = await instance.walletOfOwner(from);
+			assert.equal(afterMint.length, beforeMint.length + i);
+		}
+	});
 
-// 		for (let i = 1; i <= 5; i++) {
-// 			const from = accounts[i];
-// 			const value = cost * i;
-// 			await Contract.methods.mint(from, i).send({ from, value, gas: 1000000 });
-// 			const walletOfOwner = await instance.walletOfOwner(from);
+	it("should not permit minting more than 5 at a time", async () => {
+		const from = accounts[2];
+		const value = web3.utils.toWei("0.0001") * 6;
+		await truffleAssert.reverts(
+			Contract.methods.mint(from, 6).send({ from, value, gas: 1000000 }),
+			"revert",
+			"Can't mint more than 10"
+		);
+	});
 
-// 			assert.equal(walletOfOwner.length, i);
-// 		}
-// 	});
+	it("should require correct payment", async () => {
+		const from = accounts[2];
+		const value = web3.utils.toWei("1");
 
-// 	it("should not permit minting more than 5 at a time", async () => {
-// 		const from = accounts[2];
-// 		const value = web3.utils.toWei("0.0001") * 6;
-// 		await truffleAssert.reverts(
-// 			Contract.methods.mint(from, 6).send({ from, value, gas: 1000000 }),
-// 			"revert",
-// 			"Can't mint more than 5"
-// 		);
-// 	});
+		await instance.setCost(web3.utils.toWei("2"));
 
-// 	it("should require correct payment", async () => {
-// 		const from = accounts[2];
-// 		const value = web3.utils.toWei("1");
+		await truffleAssert.reverts(
+			Contract.methods.mint(from, 1).send({ from, value, gas: 1000000 }),
+			"revert",
+			"Not enough Eth sent"
+		);
+	});
 
-// 		await instance.setCost(web3.utils.toWei("2"));
+	it("should only allow owner to withdraw", async () => {
+		await instance.mint(accounts[1], 1);
+		const contractBalanceBeforeWithdraw = await web3.eth.getBalance(
+			instance.address
+		);
 
-// 		await truffleAssert.reverts(
-// 			Contract.methods.mint(from, 1).send({ from, value, gas: 1000000 }),
-// 			"revert",
-// 			"Not enough Eth sent"
-// 		);
-// 	});
+		assert.notEqual(contractBalanceBeforeWithdraw, "0");
 
-// 	it("should only allow owner to withdraw", async () => {
-// 		const ownerBalanceBeforeWithdraw = await web3.eth.getBalance(owner);
-// 		console.log(ownerBalanceBeforeWithdraw);
-// 		const contractBalanceBeforeWithdraw = await web3.eth.getBalance(
-// 			instance.address
-// 		);
+		await truffleAssert.reverts(
+			Contract.methods.withdraw().send({ from: accounts[1] })
+		);
 
-// 		assert.notEqual(contractBalanceBeforeWithdraw, "0");
+		await Contract.methods.withdraw().send({ from: owner });
 
-// 		await truffleAssert.reverts(
-// 			Contract.methods.withdraw().send({ from: accounts[1] })
-// 		);
+		const contractBalanceAfterWithdraw = await web3.eth.getBalance(
+			instance.address
+		);
 
-// 		await Contract.methods.withdraw().send({ from: owner });
+		assert.notEqual(
+			contractBalanceBeforeWithdraw,
+			contractBalanceAfterWithdraw
+		);
 
-// 		const contractBalanceAfterWithdraw = await web3.eth.getBalance(
-// 			instance.address
-// 		);
-
-// 		assert.notEqual(
-// 			contractBalanceBeforeWithdraw,
-// 			contractBalanceAfterWithdraw
-// 		);
-
-// 		assert.equal(contractBalanceAfterWithdraw, "0");
-// 	});
-// });
+		assert.equal(contractBalanceAfterWithdraw, "0");
+	});
+});
 
 function bigToNum(n) {
 	return Number(BigInt(n));

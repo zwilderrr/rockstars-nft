@@ -28,7 +28,6 @@ export function MintButton({ Contract, setTxHash, web3 }) {
 			// }
 			const cost = await Contract.methods.cost().call();
 			const value = cost * count;
-			console.log(cost, value);
 
 			Contract.methods
 				.mint(from, count)

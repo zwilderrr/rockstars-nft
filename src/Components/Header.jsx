@@ -48,7 +48,7 @@ export default function Header({ setWeb3, setProvider, setContract, shrink }) {
 		const [selectedAccount] = await web3.eth.getAccounts();
 
 		setContract(
-			new web3.eth.Contract(RockstarsNFTDevJSON.abi, contractAddress.local)
+			new web3.eth.Contract(RockstarsNFTDevJSON.abi, contractAddress.rinkeby)
 		);
 		setConnectBtnText(formatAccount(selectedAccount) || CONNECT_WALLET);
 		setWeb3(web3);
