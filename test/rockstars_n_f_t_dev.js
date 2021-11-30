@@ -61,13 +61,22 @@ contract("RockstarsNFTDev", function (accounts) {
 
 	it("should accept an array of allowlisted accounts", async () => {
 		// should fail because accounts[3] isn't sending any ether with the request
-		await truffleAssert.reverts(instance.mint(accounts[3], 1), "revert");
-
+		await truffleAssert.reverts(
+			instance.mint(accounts[3], 1, { from: accounts[3] }),
+			"revert"
+		);
 		const allowlist = [accounts[3], accounts[4]];
 
 		await instance.allowlistUser(allowlist);
 
-		await instance.mint(accounts[3]);
+		await instance.mint(accounts[3], 1, { from: accounts[3] });
+
+		await instance.removeAllowlistUser(allowlist);
+
+		await truffleAssert.reverts(
+			instance.mint(accounts[3], 1, { from: accounts[3] }),
+			"revert"
+		);
 	});
 });
 
@@ -89,7 +98,6 @@ describe("Test web3", function () {
 
 	it("should successfully mint up to 5 at a time", async () => {
 		const cost = await Contract.methods.cost().call();
-		// it("should successfully mint up to 5 at a time", async () => {
 		for (let i = 2; i <= 5; i++) {
 			const from = accounts[i - 1];
 			const value = cost * i;
