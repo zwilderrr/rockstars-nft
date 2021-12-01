@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Footer } from "./Components/Footer";
 import Header from "./Components/Header";
 import LandingPage from "./Components/LandingPage";
@@ -38,7 +38,7 @@ export default function App() {
 				</Route>
 			</Switch>
 
-			<Footer isMobile={isMobile} />
+			<Footer />
 		</Router>
 	);
 }

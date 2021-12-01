@@ -1,15 +1,9 @@
 import "./Footer.css";
 import { socialMediaLinks, termsLink } from "../content";
-import { useLocation } from "react-router";
 
-export function Footer({ isMobile }) {
-	const isRootUrl = useLocation().pathname === "/";
-
+export function Footer() {
 	return (
-		<div
-			className="footer"
-			// style={{ position: isMobile || isRootUrl ? "fixed" : "static" }}
-		>
+		<div className="footer">
 			<div className="logo-text">Rockstars</div>
 			<div className="links">
 				{[...socialMediaLinks, termsLink].map(link => (
