@@ -1213,7 +1213,7 @@ contract RockstarsNFTDev is ERC721Enumerable, Ownable {
   string public baseURI;
   string public baseExtension = ".json";
   string public metaDataFolder = "metadata/";
-  uint256 public cost = 1 ether;
+  uint256 public cost = .0001 ether;
   uint256 public maxSupply = 10000;
   uint256 public maxMintAmount = 5;
   bool public paused = false;

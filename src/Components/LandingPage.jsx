@@ -74,12 +74,13 @@ export default function LandingPage({
 
 	const [txHash, setTxHash] = useState();
 	const [modalOpen, setModalOpen] = useState(false);
+	const [txError, setTxError] = useState(false);
 
 	useEffect(() => {
-		if (txHash) {
+		if (txHash || txError) {
 			setModalOpen(true);
 		}
-	}, [txHash]);
+	}, [txHash, txError]);
 
 	function getHelperText() {
 		if (isMobile) {
@@ -104,7 +105,7 @@ export default function LandingPage({
 			return (
 				<div className="fadeIn helper-text" style={{ animationDelay: "2.6s" }}>
 					Looks like you don't have a crypto wallet installed on your browser.
-					Watch the{" "}
+					{/* Watch the{" "}
 					<a
 						href="https://metamask.io/download"
 						className="external-link"
@@ -114,7 +115,7 @@ export default function LandingPage({
 					>
 						how to
 					</a>{" "}
-					video posted on Twitter to get started.
+					video posted on Twitter to get started. */}
 				</div>
 			);
 		}
@@ -140,9 +141,9 @@ export default function LandingPage({
 						</div>
 						<MintButton
 							web3={web3}
-							provider={provider}
 							Contract={Contract}
 							setTxHash={setTxHash}
+							setTxError={setTxError}
 						/>
 						{getHelperText()}
 					</div>
@@ -203,6 +204,8 @@ export default function LandingPage({
 			<SuccessModal
 				modalOpen={modalOpen}
 				txHash={txHash}
+				txError={txError}
+				setTxError={setTxError}
 				setModalOpen={setModalOpen}
 				isMobile={isMobile}
 			/>

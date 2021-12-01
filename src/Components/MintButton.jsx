@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./MintButton.css";
 
-export function MintButton({ Contract, setTxHash, web3 }) {
+export function MintButton({ Contract, web3, setTxHash, setTxError }) {
 	const MAX_COUNT = 10;
 	const [btnText, setBtnText] = useState();
 	const [minting, setMinting] = useState(false);
@@ -22,6 +22,7 @@ export function MintButton({ Contract, setTxHash, web3 }) {
 			const id = await web3.eth.net.getId();
 			if (id !== 4) {
 				window.alert(
+					// "Mint failed!\nNot connected to Ethereum Mainnet\nPlease switch to Mainnet and try again"
 					"Mint failed!\nNot connected to Rinkeby\nPlease switch to networks and try again"
 				);
 				return;
@@ -50,6 +51,7 @@ export function MintButton({ Contract, setTxHash, web3 }) {
 				.on("error", res => {
 					setMinting(false);
 					setCanMint(true);
+					setTxError(true);
 					console.log("error", res);
 				})
 				.then(res => {

@@ -18,9 +18,8 @@ const METAMASK_CHROME_URL =
 	"https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en";
 
 const contractAddress = {
-	ropsten: "0x01C2349afCB380cD98521C1Dcf78fe133041E766",
 	rinkeby: "0x3025Cfb46Fc2E0f43468Fd5dDb107401d359e878",
-	local: "0x92Ec4d055a33332D3421aF3E3e6a6bc5E51339D4",
+	local: "0x8bb3C1CEe7F2Fb74ED1A2c88733bba6BB0995fd9",
 };
 
 export function scrollToTop(top = 0) {
