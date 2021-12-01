@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Modal, Fade } from "@mui/material";
 import { tweet } from "../content";
+import "./ContentModal.css";
 
 const openSeaUrlDev =
 	"https://testnets.opensea.io/account/rockstars-nft-hotness-dev";
@@ -8,7 +9,7 @@ const openSeaUrlProd = "https://opensea.io/account/rockstars-nft-hotness";
 
 const etherscanRinkeby = "https://rinkeby.etherscan.io/tx/";
 
-export function SuccessModal({
+export function ContentModal({
 	txHash,
 	txError,
 	setTxError,
@@ -26,12 +27,13 @@ export function SuccessModal({
 		p: 4,
 		borderRadius: 2,
 		fontWeight: "bold",
+		border: "solid thick rgb(255, 161, 213)",
 	};
 
 	const content = {
-		success: () => (
+		success: (
 			<>
-				<h1 style={{ textAlign: "center", paddingBottom: "15px" }}>Success!</h1>
+				<h1 className="modal-header"> Success!</h1>
 				<div>
 					<a
 						href={tweet}
@@ -48,7 +50,7 @@ export function SuccessModal({
 				<div>
 					View your transaction on{" "}
 					<a
-						href={etherscanRinkeby + { txHash }}
+						href={etherscanRinkeby + txHash}
 						className="external-link"
 						alt="mint rinkeby"
 						target="_blank"
@@ -70,33 +72,40 @@ export function SuccessModal({
 				</div>
 			</>
 		),
-		error: () => (
+		error: (
 			<>
-				<h1 style={{ textAlign: "center", paddingBottom: "15px" }}>Error</h1>
+				<h1 className="modal-header">Error</h1>
 				<div>
-					There was an error minting your Rockstar, and you've been refunded all
-					ETH sent (minus gas fees).
+					There was an error minting your Rockstar. You've been refunded all ETH
+					sent (minus gas fees).
 				</div>
 			</>
 		),
 	};
 
-	const txStatus = txError ? "error" : "success";
+	const txStatus = txError ? "error" : txHash ? "success" : "";
+
+	function closeModal(_, reason) {
+		if (!reason || reason === "escapeKeyDown") {
+			setModalOpen(false);
+			setTxError(false);
+		}
+	}
 
 	return (
 		<Modal
 			open={modalOpen}
-			onClose={(_, reason) => {
-				if (reason === "escapeKeyDown") {
-					setModalOpen(false);
-					setTxError(false);
-				}
-			}}
+			onClose={closeModal}
 			aria-labelledby="modal-modal-title"
 			aria-describedby="modal-modal-description"
 		>
 			<Fade in={modalOpen}>
-				<Box sx={style}>{content[txStatus]}</Box>
+				<Box sx={style}>
+					<button className="close-button" onClick={closeModal}>
+						x
+					</button>
+					{content[txStatus]}
+				</Box>
 			</Fade>
 		</Modal>
 	);

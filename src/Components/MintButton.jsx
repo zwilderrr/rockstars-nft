@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./MintButton.css";
 
+const metamaskProviderErrorCodes = [4001, 4100, 4200, 4900, 4901];
+
 export function MintButton({ Contract, web3, setTxHash, setTxError }) {
 	const MAX_COUNT = 10;
 	const [btnText, setBtnText] = useState();
@@ -20,13 +22,13 @@ export function MintButton({ Contract, web3, setTxHash, setTxError }) {
 		try {
 			const [from] = await web3.eth.requestAccounts();
 			const id = await web3.eth.net.getId();
-			if (id !== 4) {
-				window.alert(
-					// "Mint failed!\nNot connected to Ethereum Mainnet\nPlease switch to Mainnet and try again"
-					"Mint failed!\nNot connected to Rinkeby\nPlease switch to networks and try again"
-				);
-				return;
-			}
+			// if (id !== 4) {
+			// 	window.alert(
+			// 		// "Mint failed!\nNot connected to Ethereum Mainnet\nPlease switch to Mainnet and try again"
+			// 		"Mint failed!\nNot connected to Rinkeby\nPlease switch networks and try again"
+			// 	);
+			// 	return;
+			// }
 			const cost = await Contract.methods.cost().call();
 			const value = cost * count;
 
@@ -51,11 +53,15 @@ export function MintButton({ Contract, web3, setTxHash, setTxError }) {
 				.on("error", res => {
 					setMinting(false);
 					setCanMint(true);
-					setTxError(true);
+					if (!metamaskProviderErrorCodes.includes(res.code)) {
+						setTxError(true);
+					}
 					console.log("error", res);
 				})
 				.then(res => {
-					setBtnText("Minted!");
+					setBtnText("");
+					setMinting(false);
+					setCanMint(true);
 					setTxHash(res.transactionHash);
 				});
 		} catch (e) {

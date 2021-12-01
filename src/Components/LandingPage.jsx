@@ -2,10 +2,10 @@ import "./LandingPage.css";
 import rockstarMain from "../images/rockstar-main.png";
 import multicolor from "../images/multicolor.png";
 import heat from "../images/heat.png";
-import { ctaText, rareText, tweet, whyText } from "../content";
+import { ctaText, rareText, whyText } from "../content";
 import { MintButton } from "./MintButton";
 import { useEffect, useRef, useState } from "react";
-import { SuccessModal } from "./SuccessModal";
+import { ContentModal } from "./ContentModal";
 
 export const useOnScreen = (ref, cb, isMobile = false) => {
 	const [isVisible, setIsVisible] = useState(false);
@@ -57,7 +57,6 @@ function RockstarImage({ src, show = true }) {
 
 export default function LandingPage({
 	web3,
-	provider,
 	Contract,
 	isMobile,
 	setShrinkHeader,
@@ -145,7 +144,7 @@ export default function LandingPage({
 							setTxHash={setTxHash}
 							setTxError={setTxError}
 						/>
-						{getHelperText()}
+						{!isMobile && getHelperText()}
 					</div>
 
 					<div className="spacer" />
@@ -201,7 +200,7 @@ export default function LandingPage({
 					</div>
 				</div>
 			</div>
-			<SuccessModal
+			<ContentModal
 				modalOpen={modalOpen}
 				txHash={txHash}
 				txError={txError}
