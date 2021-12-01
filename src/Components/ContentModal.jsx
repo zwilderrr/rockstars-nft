@@ -3,8 +3,7 @@ import { Box, Modal, Fade } from "@mui/material";
 import { tweet } from "../content";
 import "./ContentModal.css";
 
-const openSeaUrlDev =
-	"https://testnets.opensea.io/collection/rockstarsnftdev-v2";
+const openSeaUrlDev = "https://testnets.opensea.io/account/rockstarsnftdev-v2";
 // const openSeaUrlDev =
 // 	"https://testnets.opensea.io/account/rockstars-nft-hotness-dev";
 const openSeaUrlProd = "https://opensea.io/account/rockstars-nft-hotness";
