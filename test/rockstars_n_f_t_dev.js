@@ -109,8 +109,9 @@ describe("Test web3", function () {
 	});
 
 	it("should not permit minting more than 5 at a time", async () => {
+		const cost = await Contract.methods.cost().call();
 		const from = accounts[2];
-		const value = web3.utils.toWei("0.0001") * 6;
+		const value = cost * 6;
 		await truffleAssert.reverts(
 			Contract.methods.mint(from, 6).send({ from, value, gas: 1000000 }),
 			"revert",
