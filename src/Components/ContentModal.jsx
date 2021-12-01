@@ -4,7 +4,9 @@ import { tweet } from "../content";
 import "./ContentModal.css";
 
 const openSeaUrlDev =
-	"https://testnets.opensea.io/account/rockstars-nft-hotness-dev";
+	"https://testnets.opensea.io/collection/rockstarsnftdev-v2";
+// const openSeaUrlDev =
+// 	"https://testnets.opensea.io/account/rockstars-nft-hotness-dev";
 const openSeaUrlProd = "https://opensea.io/account/rockstars-nft-hotness";
 
 const etherscanRinkeby = "https://rinkeby.etherscan.io/tx/";
