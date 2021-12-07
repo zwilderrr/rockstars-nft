@@ -20,6 +20,7 @@ export default function App() {
 				setProvider={setProvider}
 				setContract={setContract}
 				shrink={shrinkHeader}
+				isMobile={isMobile}
 			/>
 
 			<Switch>

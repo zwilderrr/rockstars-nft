@@ -2,10 +2,11 @@ import "./LandingPage.css";
 import rockstarMain from "../images/rockstar-main.png";
 import multicolor from "../images/multicolor.png";
 import heat from "../images/heat.png";
-import { ctaText, rareText, whyText } from "../content";
+import { ctaText, rareText, timelineText, whyText } from "../content";
 import { MintButton } from "./MintButton";
 import { useEffect, useRef, useState } from "react";
 import { ContentModal } from "./ContentModal";
+import { Timeline } from "./Timeline";
 
 export const useOnScreen = (ref, cb, isMobile = false) => {
 	const [isVisible, setIsVisible] = useState(false);
@@ -104,7 +105,7 @@ export default function LandingPage({
 			return (
 				<div className="fadeIn helper-text" style={{ animationDelay: "2.6s" }}>
 					Looks like you don't have a crypto wallet installed on your browser.
-					{/* Watch the{" "}
+					Download{" "}
 					<a
 						href="https://metamask.io/download"
 						className="external-link"
@@ -112,9 +113,9 @@ export default function LandingPage({
 						target="_blank"
 						rel="noreferrer"
 					>
-						how to
+						Metamask
 					</a>{" "}
-					video posted on Twitter to get started. */}
+					to get started.
 				</div>
 			);
 		}
@@ -144,15 +145,26 @@ export default function LandingPage({
 							setTxHash={setTxHash}
 							setTxError={setTxError}
 						/>
-						{!isMobile && getHelperText()}
+						{/* {!isMobile && getHelperText()} */}
 					</div>
 
 					<div className="spacer" />
 
 					<div className="col-right">
 						{!isMobile && <RockstarImage src={rockstarMain} />}
-						{isMobile && getHelperText()}
+						{/* {isMobile && getHelperText()} */}
 					</div>
+				</div>
+				<div
+					className="fadeIn row row-short"
+					style={{ animationDelay: "2.6s" }}
+				>
+					<div className="col-left">
+						RockstarsNFT is dropping soon. Check us out on Twitter & TikTok to
+						get yours now.
+					</div>
+					<div className="spacer" />
+					<div className="col-right" />
 				</div>
 			</div>
 
@@ -200,6 +212,11 @@ export default function LandingPage({
 					</div>
 				</div>
 			</div>
+
+			{/* <div className="bgwhite">
+				<Timeline />
+			</div> */}
+
 			<ContentModal
 				modalOpen={modalOpen}
 				txHash={txHash}

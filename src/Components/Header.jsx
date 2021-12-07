@@ -12,10 +12,11 @@ import Web3 from "web3";
 let provider;
 let web3;
 
-const INSTALL_METAMASK = "Install Metamask";
+const GET_METAMASK = "Get Metamask";
 const CONNECT_WALLET = "Connect Wallet";
-const METAMASK_CHROME_URL =
+const METAMASK_EXTENSION_URL =
 	"https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en";
+const METAMASK_APP_URL = "https://metamask.io/download";
 
 const contractAddress = {
 	rinkeby: "0x6063643B4EC6C2bf29af16982eC1B69446269F8e",
@@ -26,7 +27,13 @@ export function scrollToTop(top = 0) {
 	window.scroll({ top, behavior: "smooth" });
 }
 
-export default function Header({ setWeb3, setProvider, setContract, shrink }) {
+export default function Header({
+	setWeb3,
+	setProvider,
+	setContract,
+	shrink,
+	isMobile,
+}) {
 	const LISTENERS = [
 		{ name: "accountsChanged", fn: handleAccountChanged },
 		{ name: "chainChanged", fn: handleChainChanged },
@@ -38,7 +45,7 @@ export default function Header({ setWeb3, setProvider, setContract, shrink }) {
 		provider = await detectEthereumProvider({ timeout: 1000 });
 
 		if (!provider) {
-			setConnectBtnText(INSTALL_METAMASK);
+			setConnectBtnText(GET_METAMASK);
 			return;
 		}
 
@@ -85,8 +92,12 @@ export default function Header({ setWeb3, setProvider, setContract, shrink }) {
 			return;
 		}
 
-		if (connectBtnText === INSTALL_METAMASK) {
-			window.open(METAMASK_CHROME_URL, "_blank").focus();
+		if (connectBtnText === GET_METAMASK) {
+			if (isMobile) {
+				window.open(METAMASK_APP_URL, "_blank").focus();
+				return;
+			}
+			window.open(METAMASK_EXTENSION_URL, "_blank").focus();
 			setConnectBtnText(CONNECT_WALLET);
 			return;
 		}

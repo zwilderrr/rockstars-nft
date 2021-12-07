@@ -43,6 +43,10 @@
 	padding: 50px 0;
 }
 
+.first > .row {
+	padding-bottom: 40px;
+}
+
 .helper-text {
 	padding-top: 30px;
 }
@@ -54,6 +58,11 @@
 	min-height: 35vh;
 	padding: 150px 0;
 	width: 70%;
+}
+
+.row-short {
+	min-height: 0;
+	padding: 0 0 30px;
 }
 
 .spacer {
@@ -78,7 +87,9 @@
 }
 
 @media only screen and (max-width: 1200px) {
-	.cta-text {
+	.cta-text,
+	.helper-text,
+	.row-short {
 		font-size: 14px;
 	}
 	.body-text {
@@ -91,7 +102,9 @@
 }
 
 @media only screen and (max-width: 768px) {
-	.cta-text {
+	.cta-text,
+	.helper-text,
+	.row-short {
 		font-size: 16px;
 	}
 
@@ -101,12 +114,21 @@
 	}
 
 	.first {
-		padding: 50px 0 0;
+		padding: 20px 0;
+	}
+
+	.first > .row {
+		padding-bottom: 20px;
 	}
 
 	.row {
 		display: block;
-		padding: 100px 0 50px;
+		padding: 120px 0;
 		width: 80%;
+	}
+
+	.row-short {
+		position: relative;
+		padding: 0;
 	}
 }

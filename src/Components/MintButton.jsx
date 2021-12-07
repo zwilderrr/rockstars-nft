@@ -22,10 +22,9 @@ export function MintButton({ Contract, web3, setTxHash, setTxError }) {
 		try {
 			const [from] = await web3.eth.requestAccounts();
 			const id = await web3.eth.net.getId();
-			// if (id !== 4) {
+			// if (id !== 1) {
 			// 	window.alert(
 			// 		// "Mint failed!\nNot connected to Ethereum Mainnet\nPlease switch to Mainnet and try again"
-			// 		"Mint failed!\nNot connected to Rinkeby\nPlease switch networks and try again"
 			// 	);
 			// 	return;
 			// }
@@ -69,7 +68,8 @@ export function MintButton({ Contract, web3, setTxHash, setTxError }) {
 		}
 	}
 
-	const disableButtons = !web3 || !canMint;
+	const disableButtons = true;
+	// const disableButtons = !web3 || !canMint;
 
 	return (
 		<div className="mint-btn-wrapper">
