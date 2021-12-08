@@ -45,32 +45,31 @@ export const rareText = [
 
 export const timelineText = [
 	{
-		percent: 0,
-		title: "Presale and promotion",
+		percent: 10,
+		title: "Presale",
 		description:
 			"Join our Discord server and follow us on Twitter for exclusive giveaways and pre-mint drops.",
 	},
 	{
-		percent: 30,
+		percent: 20,
 		title: "Public launch",
 		description: "Mint a Rockstar and live the dream.",
 	},
 	{
-		percent: 60,
-		title: "RockVenuesNFT launch",
+		percent: 40,
+		title: "RockVenuesNFT",
 		description:
-			"Host concerts of any kind. Invite your Rockstar friends and other NFTs to get the party started. One out of ever four Rockstars receives a RockVenueNFT free.",
+			"Invite your Rockstar friends and other NFTs to get the party started",
+	},
+	{
+		percent: 60,
+		title: "RockFansNFT",
+		description: "Build a following and form your own BandDAO",
 	},
 	{
 		percent: 90,
-		title: "RockFansNFT launch",
-		description:
-			"Build a following and form your own Band-DAO. Everyone participates and everyone wins.",
-	},
-	{
-		percent: 100,
 		title: "Metaverse",
-		description: "Taking it to the next level.",
+		description: "Taking it to the next level in the next level",
 	},
 ];
 
