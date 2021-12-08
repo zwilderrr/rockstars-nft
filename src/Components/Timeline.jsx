@@ -1,12 +1,12 @@
-import {
-	Timeline as MuiTimeline,
-	TimelineItem,
-	TimelineSeparator,
-	TimelineConnector,
-	TimelineContent,
-	TimelineDot,
-	TimelineOppositeContent,
-} from "@mui/lab";
+// import {
+// 	Timeline as MuiTimeline,
+// 	TimelineItem,
+// 	TimelineSeparator,
+// 	TimelineConnector,
+// 	TimelineContent,
+// 	TimelineDot,
+// 	TimelineOppositeContent,
+// } from "@mui/lab";
 
 import { Typography } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
@@ -30,7 +30,7 @@ export function Timeline({ isMobile }) {
 	return (
 		<div className="tl-wrapper">
 			<div ref={ref}>
-				<MuiTimeline>
+				{/* <MuiTimeline>
 					{timelineText.map(({ percent, title, description }, i) => (
 						<TimelineItem key={title}>
 							<TimelineOppositeContent
@@ -65,7 +65,7 @@ export function Timeline({ isMobile }) {
 							</TimelineContent>
 						</TimelineItem>
 					))}
-				</MuiTimeline>
+				</MuiTimeline> */}
 			</div>
 		</div>
 	);
