@@ -48,7 +48,7 @@ export function Timeline({ isMobile }) {
 								/>
 								<TimelineDot
 									sx={{ background: i === 0 && "pink", boxShadow: "none" }}
-									className={i === 0 && "pulse"}
+									className={i === 0 ? "pulse" : ""}
 								/>
 								<TimelineConnector />
 							</TimelineSeparator>
