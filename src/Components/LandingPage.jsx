@@ -213,9 +213,9 @@ export default function LandingPage({
 				</div>
 			</div>
 
-			<div className="bgwhite">
+			{/* <div className="bgwhite">
 				<Timeline isMobile={isMobile} />
-			</div>
+			</div> */}
 
 			<ContentModal
 				modalOpen={modalOpen}
