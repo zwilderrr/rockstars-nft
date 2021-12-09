@@ -48,12 +48,12 @@ export const timelineText = [
 		percent: 10,
 		title: "Presale",
 		description:
-			"Join our Discord server and follow us on Twitter for exclusive giveaways and pre-mint drops.",
+			"Join our Discord server and follow us on Twitter for exclusive giveaways and pre-mint drops",
 	},
 	{
 		percent: 20,
 		title: "Public launch",
-		description: "Mint a Rockstar and live the dream.",
+		description: "Mint a Rockstar and live the dream",
 	},
 	{
 		percent: 40,
@@ -69,7 +69,7 @@ export const timelineText = [
 	{
 		percent: 90,
 		title: "Metaverse",
-		description: "Taking it to the next level in the next level",
+		description: "Taking it to the next level, in the next level",
 	},
 ];
 
