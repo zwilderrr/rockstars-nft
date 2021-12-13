@@ -35,12 +35,12 @@ export const ctaText = [
 
 export const rareText = [
 	"Rare, ultra-rare, and hyper-rare Rockstars are ready to rock and roll",
-	<div
-		style={{ textDecoration: "underline", cursor: "pointer" }}
-		onClick={() => scrollToTop(200)}
-	>
-		Mint yours now
-	</div>,
+	// <div
+	// 	style={{ textDecoration: "underline", cursor: "pointer" }}
+	// 	onClick={() => scrollToTop(200)}
+	// >
+	// 	Mint yours now
+	// </div>,
 ];
 
 export const timelineText = [

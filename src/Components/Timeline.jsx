@@ -15,6 +15,7 @@ import CountUp from "react-countup";
 import { timelineText } from "../content";
 import "./Timeline.css";
 import { useOnScreen } from "./LandingPage";
+import { scrollToTop } from "./Header";
 
 export function Timeline({ isMobile }) {
 	const ref = useRef();
@@ -66,6 +67,12 @@ export function Timeline({ isMobile }) {
 						</TimelineItem>
 					))}
 				</MuiTimeline>
+			</div>
+
+			<div className="mint-now-btn-wrapper">
+				<div className="mint-now-btn" onClick={() => scrollToTop(200)}>
+					Mint yours now
+				</div>
 			</div>
 		</div>
 	);
