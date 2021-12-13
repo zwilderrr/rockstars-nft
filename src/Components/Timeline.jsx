@@ -68,12 +68,6 @@ export function Timeline({ isMobile }) {
 					))}
 				</MuiTimeline>
 			</div>
-
-			<div className="mint-now-btn-wrapper">
-				<div className="mint-now-btn" onClick={() => scrollToTop(200)}>
-					Mint yours now
-				</div>
-			</div>
 		</div>
 	);
 }
