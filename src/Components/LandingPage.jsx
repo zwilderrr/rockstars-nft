@@ -2,7 +2,14 @@ import "./LandingPage.css";
 import rockstarMain from "../images/rockstar-main.png";
 import multicolor from "../images/multicolor.png";
 import heat from "../images/heat.png";
-import { ctaText, rareText, timelineText, whyText } from "../content";
+import {
+	ctaText,
+	rareText,
+	tikTokPage,
+	timelineText,
+	twitterPage,
+	whyText,
+} from "../content";
 import { MintButton } from "./MintButton";
 import { useEffect, useRef, useState } from "react";
 import { ContentModal } from "./ContentModal";
@@ -159,9 +166,9 @@ export default function LandingPage({
 					className="fadeIn row row-short"
 					style={{ animationDelay: "2.6s" }}
 				>
-					<div className="col-left">
-						RockstarsNFT is dropping soon. Check us out on Twitter & TikTok to
-						get yours now.
+					<div className="col-left" style={{ display: "block" }}>
+						RockstarsNFT is dropping soon. Check us out on {twitterPage} &{" "}
+						{tikTokPage} to get yours now.
 					</div>
 					<div className="spacer" />
 					<div className="col-right" />

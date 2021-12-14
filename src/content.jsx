@@ -43,6 +43,30 @@ export const rareText = [
 	// </div>,
 ];
 
+export const twitterPage = (
+	<a
+		href="https://twitter.com/rockstars_nft"
+		className="external-link"
+		alt="rockstars_nft_twitter"
+		target="_blank"
+		rel="noreferrer"
+	>
+		Twitter
+	</a>
+);
+
+export const tikTokPage = (
+	<a
+		href="https://www.tiktok.com/@rockstarsnft"
+		className="external-link"
+		alt="rockstars_nft_tik_tok"
+		target="_blank"
+		rel="noreferrer"
+	>
+		TikTok
+	</a>
+);
+
 export const timelineText = [
 	{
 		percent: 10,
