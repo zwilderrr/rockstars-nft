@@ -14,6 +14,7 @@ import { MintButton } from "./MintButton";
 import { useEffect, useRef, useState } from "react";
 import { ContentModal } from "./ContentModal";
 import { Timeline } from "./Timeline";
+import { About } from "./About";
 
 export const useOnScreen = (ref, cb, isMobile = false) => {
 	const [isVisible, setIsVisible] = useState(false);
@@ -55,10 +56,10 @@ function useSetShow(isVisible) {
 	return show;
 }
 
-function RockstarImage({ src, show = true }) {
+export function Image({ src, style = {}, show = true }) {
 	return (
 		<div className={`${show ? "fadeIn" : "not-visible"}`}>
-			<img src={src} alt="rockstar" width="100%" />
+			<img src={src} alt="rockstar" width="100%" style={style} />
 		</div>
 	);
 }
@@ -132,8 +133,7 @@ export default function LandingPage({
 		<div>
 			<div className="first" ref={ref3}>
 				<div className="row">
-					{isMobile && <RockstarImage src={rockstarMain} />}
-
+					{isMobile && <Image src={rockstarMain} />}
 					<div className="col-left">
 						<div className="cta-text-wrapper">
 							{ctaText.map((line, i) => (
@@ -154,11 +154,9 @@ export default function LandingPage({
 						/>
 						{/* {!isMobile && getHelperText()} */}
 					</div>
-
 					<div className="spacer" />
-
 					<div className="col-right">
-						{!isMobile && <RockstarImage src={rockstarMain} />}
+						{!isMobile && <Image src={rockstarMain} />}
 						{/* {isMobile && getHelperText()} */}
 					</div>
 				</div>
@@ -178,7 +176,7 @@ export default function LandingPage({
 			<div className="bgwhite">
 				<div className="row">
 					<div className="col-right">
-						<RockstarImage src={heat} show={show1} />
+						<Image src={heat} show={show1} />
 					</div>
 					<div className="spacer" />
 					<div className="col-left">
@@ -199,7 +197,7 @@ export default function LandingPage({
 
 			<div>
 				<div className="row">
-					{isMobile && <RockstarImage src={multicolor} show={show2} />}
+					{isMobile && <Image src={multicolor} show={show2} />}
 					<div className="col-left">
 						<div className="body-text-wrapper" ref={ref2}>
 							{rareText.map((line, i) => (
@@ -215,13 +213,17 @@ export default function LandingPage({
 					</div>
 					<div className="spacer" />
 					<div className="col-right">
-						{!isMobile && <RockstarImage src={multicolor} show={show2} />}
+						{!isMobile && <Image src={multicolor} show={show2} />}
 					</div>
 				</div>
 			</div>
 
 			<div className="bgwhite">
 				<Timeline isMobile={isMobile} />
+			</div>
+
+			<div>
+				<About isMobile={isMobile} />
 			</div>
 
 			<ContentModal
