@@ -24,7 +24,7 @@ export function About({ isMobile }) {
 			{/* <div className="about-header">Lead Rockers</div> */}
 			<div className="profile-wrapper">
 				{staff.map(s => (
-					<div className="profile">
+					<div className="profile" key={s.img}>
 						<Image
 							src={s.img}
 							style={{ height: "200px", width: "200px", borderRadius: "50%" }}
