@@ -27,7 +27,7 @@ export const useOnScreen = (ref, cb, isMobile = false) => {
 			},
 			{
 				rootMargin: "0px",
-				threshold: cb ? (isMobile ? 0.6 : 0.8) : 0,
+				threshold: cb ? (isMobile ? 0.52 : 0.8) : 0,
 				// threshold: cb ? 0.8 : 0,
 			}
 		);
@@ -155,24 +155,13 @@ export default function LandingPage({
 							setTxHash={setTxHash}
 							setTxError={setTxError}
 						/>
-						{/* {!isMobile && getHelperText()} */}
+						{!isMobile && getHelperText()}
 					</div>
 					<div className="spacer" />
 					<div className="col-right">
 						{!isMobile && <Image src={rockstarMain} />}
 						{/* {isMobile && getHelperText()} */}
 					</div>
-				</div>
-				<div
-					className="fadeIn row row-short"
-					style={{ animationDelay: "2.6s" }}
-				>
-					<div className="col-left" style={{ display: "block" }}>
-						RockstarsNFT is dropping soon. Check us out on {twitterPage} &{" "}
-						{tikTokPage} to get yours now.
-					</div>
-					<div className="spacer" />
-					<div className="col-right" />
 				</div>
 			</div>
 
