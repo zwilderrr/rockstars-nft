@@ -60,7 +60,7 @@ contract("RockstarsNFTDev", function (accounts) {
 	});
 
 	it("should accept an array of allowlisted accounts", async () => {
-		// should fail because accounts[3] isn't sending any ether with the request
+		// should fail because accounts 3 and 4 aren't sending any ether with the request
 		await truffleAssert.reverts(
 			instance.mint(accounts[3], 1, { from: accounts[3] }),
 			"revert"
@@ -78,6 +78,21 @@ contract("RockstarsNFTDev", function (accounts) {
 			"revert"
 		);
 	});
+
+	// it("should remove an allowlisted account after minting to it", async () => {
+	// 	await truffleAssert.reverts(
+	// 		instance.mint(accounts[5], 1, { from: accounts[5] }),
+	// 		"revert"
+	// 	);
+	// 	const allowlist = [accounts[5]];
+	// 	await instance.allowlistUser(allowlist);
+	// 	await instance.mint(accounts[5], 1, { from: accounts[5] });
+
+	// 	await truffleAssert.reverts(
+	// 		instance.mint(accounts[5], 1, { from: accounts[5] }),
+	// 		"revert"
+	// 	);
+	// });
 });
 
 describe("Test web3", function () {

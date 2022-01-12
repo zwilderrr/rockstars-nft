@@ -29,8 +29,8 @@ export const termsLink = { name: "terms", href: "/terms" };
 
 export const ctaText = [
 	"RockstarsNFT is a community of 10,000 uniquely generated NFTs rockin' out on the Ethereum blockchain",
-	"They're rockstars, so they're awesome, but they're cartoons, so they're fun and friendly (and even a bit mischievous)",
-	"Mint one now and live the dream",
+	"They're rockstars, so they live big, but they're cartoons, so they're fun and friendly (and even a bit mischievous)",
+	"Presale starts Jan 25, public launch Feb 2",
 ];
 
 export const rareText = [
@@ -133,3 +133,7 @@ export const whyText = [
 // 	"When you mint a rockstar, you mint a vote for humanity. You mint a vote for what's good and right in the world. You put yourself on the winning team and become a force of good in the world.",
 // 	"Get the picture? Mint a Rockstar now and join the movement.",
 // ];
+
+// Life isn't a choice between being rich and powerful but not a nice person doing not nice things, or being kind and giving but feeling unimportant. Our Response? A fun, friendly community of good people living epic lives--even if epic just meant treating the local barista nicely.
+
+// Life felt like a choice between being rich and powerful but not a nice person doing not nice things, or being kind and giving but feeling unimportant. Our response? A fun, friendly community of good people living epic lives, even if epic just meant treating the local barista well

@@ -1,3 +1,11 @@
+.banner-text {
+	font-family: "Lobster", cursive;
+	font-size: 90px;
+	text-align: center;
+	width: 60%;
+	margin: 90px auto 40px;
+}
+
 .bgwhite {
 	background: ghostwhite;
 }
@@ -102,6 +110,12 @@
 }
 
 @media only screen and (max-width: 768px) {
+	.banner-text {
+		font-family: "Lobster", cursive;
+		font-size: 20px;
+		width: 90%;
+	}
+
 	.cta-text,
 	.helper-text,
 	.row-short {
@@ -130,5 +144,14 @@
 	.row-short {
 		position: relative;
 		padding: 0;
+	}
+}
+
+@media only screen and (max-width: 400px) {
+	.banner-text {
+		font-family: "Lobster", cursive;
+		font-size: 40px;
+		width: 90%;
+		margin: 40px auto 0px;
 	}
 }

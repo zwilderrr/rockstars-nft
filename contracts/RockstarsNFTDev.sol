@@ -1242,6 +1242,11 @@ contract RockstarsNFTDev is ERC721Enumerable, Ownable {
         if(allowlist[msg.sender] != true) {
           require(msg.value >= cost * _mintAmount, "Not enough ETH sent");
         }
+        // if(allowlist[msg.sender] == true) {
+        //     address[] memory _address;
+        //     _address[0] = msg.sender;
+        //     removeAllowlistUser(_address);
+        // }
     }
 
     for (uint256 i = 1; i <= _mintAmount; i++) {

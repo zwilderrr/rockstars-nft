@@ -132,6 +132,9 @@ export default function LandingPage({
 	return (
 		<div>
 			<div className="first" ref={ref3}>
+				<div className="banner-text">
+					A fun, friendly community of movers and shakers
+				</div>
 				<div className="row">
 					{isMobile && <Image src={rockstarMain} />}
 					<div className="col-left">
