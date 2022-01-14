@@ -1210,9 +1210,10 @@ contract RockstarsNFTDev is ERC721Enumerable, Ownable {
   string public baseURI;
   string public baseExtension = ".json";
   string public metaDataFolder = "metadata/";
-  uint256 public cost = .0001 ether;
+  uint256 public cost = 1 ether;
   uint256 public maxSupply = 10000;
   uint256 public maxMintAmount = 5;
+  bool public presale = false;
   bool public paused = false;
   mapping(address => bool) public allowlist;
 
@@ -1238,15 +1239,17 @@ contract RockstarsNFTDev is ERC721Enumerable, Ownable {
     require(_mintAmount <= maxMintAmount, "Cannot mint more than 5 at once");
     require(supply + _mintAmount <= maxSupply, "Mint amount exceeds max supply");
 
+
     if (msg.sender != owner()) {
-        if(allowlist[msg.sender] != true) {
+        if (presale) {
+          require(allowlist[msg.sender] == true, "Address not allowlisted for presale");
           require(msg.value >= cost * _mintAmount, "Not enough ETH sent");
         }
-        // if(allowlist[msg.sender] == true) {
-        //     address[] memory _address;
-        //     _address[0] = msg.sender;
-        //     removeAllowlistUser(_address);
-        // }
+        // after the presale, the allowlist functions as a "free mint" list
+        if (allowlist[msg.sender] != true) {
+          require(msg.value >= cost * _mintAmount, "Not enough ETH sent");
+        }
+        allowlist[msg.sender] = false;
     }
 
     for (uint256 i = 1; i <= _mintAmount; i++) {
@@ -1302,8 +1305,12 @@ contract RockstarsNFTDev is ERC721Enumerable, Ownable {
     baseExtension = _newBaseExtension;
   }
 
-  function pause(bool _state) public onlyOwner {
+  function togglePause(bool _state) public onlyOwner {
     paused = _state;
+  }
+
+  function togglePresale(bool _state) public onlyOwner {
+    presale = _state;
   }
 
   function allowlistUser(address[] memory _arr) public onlyOwner {
