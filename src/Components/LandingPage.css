@@ -17,7 +17,7 @@
 }
 
 .body-text-wrapper {
-	padding-bottom: 20%;
+	/* padding-bottom: 20%; */
 }
 
 .col-left {
@@ -129,6 +129,10 @@
 	.cta-text-wrapper,
 	.body-text-wrapper {
 		padding: 50px 0 20px;
+	}
+
+	.body-text-wrapper {
+		padding: 70px 0 0px;
 	}
 
 	.first {
