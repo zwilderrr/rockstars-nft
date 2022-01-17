@@ -90,7 +90,7 @@ export const timelineText = [
 export const whyText = [
 	"Life isn't a choice between being rich and powerful but not a nice person doing not nice things, or being kind and giving but feeling small and unimportant.",
 	"Life is about being a good person living an epic life--even if epic just means treating the local barista really nicely.",
-	"That's the ethos we wanted to bring to the world, and that's why we created #RockstarsNFT. They're Rockstars, so they live big, but they're cartoons, so they're fun and friendly (and even a bit mischievous!). ",
+	"That's the ethos we wanted to bring to the world, and that's why we created RockstarsNFT. They're Rockstars, so they live big, but they're cartoons, so they're fun and friendly (and even a bit mischievous!). ",
 ];
 
 // export const whyText = [
