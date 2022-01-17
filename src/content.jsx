@@ -28,9 +28,9 @@ export const tweet =
 export const termsLink = { name: "terms", href: "/terms" };
 
 export const ctaText = [
-	"RockstarsNFT is a community of 10,000 uniquely generated NFTs rockin' out on the Ethereum blockchain",
+	"Rockstars NFT is a community of 10,000 uniquely generated NFTs rockin' out on the Ethereum blockchain",
 	"They're rockstars, so they live big, but they're cartoons, so they're fun and friendly (and even a bit mischievous)",
-	"Presale starts Jan 25, public launch Feb 2",
+	"Pre-sale starts Jan 25th and the public launch is Feb 2nd",
 ];
 
 export const rareText = [
@@ -57,7 +57,7 @@ export const twitterPage = (
 
 export const tikTokPage = (
 	<a
-		href="https://www.tiktok.com/@rockstarsnft"
+		href="https://www.tiktok.com/@rockstars_nft"
 		className="external-link"
 		alt="rockstars_nft_tik_tok"
 		target="_blank"
@@ -70,7 +70,7 @@ export const tikTokPage = (
 export const timelineText = [
 	{
 		percent: 10,
-		title: "Presale",
+		title: "Pre-sale",
 		description:
 			"Join our Discord server and follow us on Twitter for exclusive giveaways and pre-mint drops",
 	},
@@ -81,13 +81,13 @@ export const timelineText = [
 	},
 	{
 		percent: 40,
-		title: "RockVenuesNFT",
+		title: "RockVenues NFT",
 		description:
 			"Invite your Rockstar friends and other NFTs to get the party started",
 	},
 	{
 		percent: 60,
-		title: "RockFansNFT",
+		title: "RockFans NFT",
 		description: "Build a following and form your own BandDAO",
 	},
 	{
@@ -120,7 +120,7 @@ export const whyText = [
 // 	"Mint a Rockstar now and join the cause.",
 // ];
 // export const whyText = [
-// 	"RockstarsNFT is a community of people who are awesome, fun and friendly. When you mint a Rockstar you choose to live an epic life of humble grandeur.",
+// 	"Rockstars NFT is a community of people who are awesome, fun and friendly. When you mint a Rockstar you choose to live an epic life of humble grandeur.",
 // 	"Rockstars are famous but treat their neighborhood barista really nicely. They're start-up founders and philosophers and quiet revolutionaries but help clean up their local park even when no one is looking. They're genuine, sincere people who do the right thing and know how to have a blast doing it.",
 // 	"A Rockstar is everything. Because they're Rockstars--so they rock, but they're cartoons, so they're always there for you.",
 // 	"When you mint a Rockstar, you mint a vote for humanity. You mint a vote for what's good and right in the world. You put yourself on the winning team and become a force of good in the world. You say that life is not a zero sum game--it's a game of big success and big kindness and it's only won when everyone wins.",

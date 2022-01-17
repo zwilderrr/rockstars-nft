@@ -215,7 +215,7 @@ export default function LandingPage({
 			</div>
 
 			<div>
-				<About isMobile={isMobile} />
+				<About />
 			</div>
 
 			<ContentModal

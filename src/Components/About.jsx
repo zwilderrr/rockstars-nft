@@ -7,28 +7,30 @@ const staff = [
 	{
 		name: "Zack",
 		img: zack,
-		title: "Software Engineer @ Coinbase",
+		title: "Creator @ Rockstars NFT",
 		funFact: "Pixel artist and latte enthusiast",
+		link: "https://zackwilder.com",
 	},
 	{
 		name: "Abby",
 		img: gail,
-		title: "Product @ RockstarsNFT",
+		title: "Product @ Rockstars NFT",
 		funFact: "Yoga master and gourmet chef",
 	},
 ];
 
-export function About({ isMobile }) {
+export function About() {
 	return (
 		<div className="about-wrapper">
-			{/* <div className="about-header">Lead Rockers</div> */}
 			<div className="profile-wrapper">
 				{staff.map(s => (
 					<div className="profile" key={s.img}>
-						<Image
-							src={s.img}
-							style={{ height: "200px", width: "200px", borderRadius: "50%" }}
-						/>
+						<a href={s.link} alt={s.name} target="_blank" rel="noreferrer">
+							<Image
+								src={s.img}
+								style={{ height: "200px", width: "200px", borderRadius: "50%" }}
+							/>
+						</a>
 						<div className="about-name">{s.name}</div>
 						<div className="about-title">{s.title}</div>
 						<div className="about-funFact">
