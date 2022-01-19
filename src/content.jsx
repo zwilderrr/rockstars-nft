@@ -72,7 +72,7 @@ export const timelineText = [
 	{
 		percent: 70,
 		title: "Pass the torch",
-		description: "Select the Rockstars who will create what's next",
+		description: "Selecting those epic Rockstars who will create what's next",
 	},
 ];
 // export const timelineText = [
