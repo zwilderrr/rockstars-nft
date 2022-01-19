@@ -65,27 +65,45 @@ export const timelineText = [
 			"Join our Discord server and follow us on Twitter for exclusive giveaways and pre-mint drops",
 	},
 	{
-		percent: 20,
+		percent: 30,
 		title: "Public launch",
 		description: "Mint a Rockstar and live the dream",
 	},
 	{
-		percent: 40,
-		title: "RockVenues NFT",
-		description:
-			"Invite your Rockstar friends and other NFTs to get the party started",
-	},
-	{
-		percent: 60,
-		title: "RockFans NFT",
-		description: "Build a following and form your own BandDAO",
-	},
-	{
-		percent: 90,
-		title: "Metaverse",
-		description: "Taking it to the next level, in the next level",
+		percent: 70,
+		title: "Pass the torch",
+		description: "Select the Rockstars who will create what's next",
 	},
 ];
+// export const timelineText = [
+// 	{
+// 		percent: 10,
+// 		title: "Pre-sale",
+// 		description:
+// 			"Join our Discord server and follow us on Twitter for exclusive giveaways and pre-mint drops",
+// 	},
+// 	{
+// 		percent: 20,
+// 		title: "Public launch",
+// 		description: "Mint a Rockstar and live the dream",
+// 	},
+// 	{
+// 		percent: 40,
+// 		title: "RockVenues NFT",
+// 		description:
+// 			"Invite your Rockstar friends and other NFTs to get the party started",
+// 	},
+// 	{
+// 		percent: 60,
+// 		title: "RockFans NFT",
+// 		description: "Build a following and form your own BandDAO",
+// 	},
+// 	{
+// 		percent: 90,
+// 		title: "Metaverse",
+// 		description: "Taking it to the next level, in the next level",
+// 	},
+// ];
 
 export const whyText = [
 	"Life isn't a choice between being rich and powerful but not a nice person doing not nice things, or being kind and giving but feeling small and unimportant.",
