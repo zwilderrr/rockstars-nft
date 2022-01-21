@@ -62,17 +62,28 @@ export const timelineText = [
 		percent: 10,
 		title: "Pre-sale",
 		description:
-			"Join our Discord server and follow us on Twitter for exclusive giveaways and pre-mint drops",
+			"Join our Discord server and follow us on Twitter for exclusive giveaways and pre-sale drops",
 	},
 	{
-		percent: 30,
+		percent: 20,
 		title: "Public launch",
-		description: "Mint a Rockstar and live the dream",
+		description: "Mint a RockstarNFT and live the dream",
 	},
 	{
-		percent: 70,
-		title: "Pass the torch",
-		description: "Selecting those epic Rockstars who will create what's next",
+		percent: 40,
+		title: "RockVenuesNFT",
+		description:
+			"Invite your Rockstar friends and other NFTs to get the party started",
+	},
+	{
+		percent: 60,
+		title: "RockFansNFT",
+		description: "Build a following and form your own BandDAO",
+	},
+	{
+		percent: 90,
+		title: "Metaverse",
+		description: "Taking it to the next level, in the next level",
 	},
 ];
 // export const timelineText = [
