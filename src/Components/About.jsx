@@ -7,14 +7,14 @@ const staff = [
 	{
 		name: "Zack",
 		img: zack,
-		title: "Creator @ Rockstars NFT",
+		title: "Creator @ RockstarsNFT",
 		funFact: "Pixel artist and latte enthusiast",
 		link: "https://zackwilder.com",
 	},
 	{
 		name: "Abby",
 		img: gail,
-		title: "Product @ Rockstars NFT",
+		title: "Product @ RockstarsNFT",
 		funFact: "Yoga master and gourmet chef",
 	},
 ];
