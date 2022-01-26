@@ -43,8 +43,8 @@ module.exports = {
 		rinkeby: {
 			provider: () =>
 				new HDWalletProvider(
-					process.env.MNEMONIC_DEV,
-					process.env.INFURA_URL_RINKEBY
+					process.env.MNEMONIC_PROD,
+					process.env.INFURA_URL_PROD_RINKEBY
 				),
 			network_id: 4,
 			confirmations: 2, // # of confs to wait between deployments. (default: 0)

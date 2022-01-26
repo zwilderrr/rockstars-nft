@@ -69,7 +69,7 @@ export function ContentModal({
 					>
 						OpenSea
 					</a>{" "}
-					to check out your Rockstar
+					to check out your Rockstar (may take a few minutes to display)
 				</div>
 			</>
 		),

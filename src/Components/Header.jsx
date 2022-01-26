@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { socialMediaLinks } from "../content";
 import "./Header.css";
 
-import RockstarsNFTDevJSON from "../contracts/RockstarsNFTDev.json";
+import RockstarsNFTJSON from "../contracts/RockstarsNFT.json";
 
 import detectEthereumProvider from "@metamask/detect-provider";
 import Web3 from "web3";
@@ -19,8 +19,8 @@ const METAMASK_EXTENSION_URL =
 const METAMASK_APP_URL = "https://metamask.io/download";
 
 const contractAddress = {
-	rinkeby: "0x6063643B4EC6C2bf29af16982eC1B69446269F8e",
-	local: "",
+	rinkeby: "0x0D8415b09CE63Edd8386D41283253A12B887a51c",
+	local: "0xa93Ae522784Bf2Ae7B13542f9971A2D029d3D93b",
 };
 
 export function scrollToTop(top = 0) {
@@ -54,7 +54,7 @@ export default function Header({
 		const [selectedAccount] = await web3.eth.getAccounts();
 
 		setContract(
-			new web3.eth.Contract(RockstarsNFTDevJSON.abi, contractAddress.rinkeby)
+			new web3.eth.Contract(RockstarsNFTJSON.abi, contractAddress.rinkeby)
 		);
 		setConnectBtnText(formatAccount(selectedAccount) || CONNECT_WALLET);
 		setWeb3(web3);

@@ -1204,13 +1204,13 @@ abstract contract Ownable is Context {
     }
 }
 
-contract RockstarsNFTDev is ERC721Enumerable, Ownable {
+contract RockstarsNFT is ERC721Enumerable, Ownable {
   using Strings for uint256;
 
   string public baseURI;
   string public baseExtension = ".json";
   string public metaDataFolder = "metadata/";
-  uint256 public cost = 1 ether;
+  uint256 public cost = .05 ether;
   uint256 public maxSupply = 10000;
   uint256 public maxMintAmount = 5;
   bool public presale = false;

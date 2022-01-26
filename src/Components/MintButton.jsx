@@ -4,7 +4,7 @@ import "./MintButton.css";
 const metamaskProviderErrorCodes = [4001, 4100, 4200, 4900, 4901];
 
 export function MintButton({ Contract, web3, setTxHash, setTxError }) {
-	const MAX_COUNT = 10;
+	const MAX_COUNT = 5;
 	const [btnText, setBtnText] = useState();
 	const [minting, setMinting] = useState(false);
 	const [canMint, setCanMint] = useState(true);
@@ -68,8 +68,7 @@ export function MintButton({ Contract, web3, setTxHash, setTxError }) {
 		}
 	}
 
-	const disableButtons = true;
-	// const disableButtons = !web3 || !canMint;
+	const disableButtons = !web3 || !canMint;
 
 	return (
 		<div className="mint-btn-wrapper">
