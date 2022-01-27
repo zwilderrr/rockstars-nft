@@ -22,12 +22,12 @@ export function MintButton({ Contract, web3, setTxHash, setTxError }) {
 		try {
 			const [from] = await web3.eth.requestAccounts();
 			const id = await web3.eth.net.getId();
-			// if (id !== 1) {
-			// 	window.alert(
-			// 		// "Mint failed!\nNot connected to Ethereum Mainnet\nPlease switch to Mainnet and try again"
-			// 	);
-			// 	return;
-			// }
+			if (id !== 4) {
+				window.alert(
+					"Mint failed!\nNot connected to Rinkeby\nPlease switch to Rinkeby and try again"
+				);
+				return;
+			}
 			const cost = await Contract.methods.cost().call();
 			const value = cost * count;
 

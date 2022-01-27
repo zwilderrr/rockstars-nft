@@ -28,9 +28,9 @@ export const tweet =
 export const termsLink = { name: "terms", href: "/terms" };
 
 export const ctaText = [
-	"Rockstars NFT is a community of 10,000 uniquely generated NFTs rockin' out on the Ethereum blockchain",
-	"They're rockstars, so they live big, but they're cartoons, so they're fun and friendly (and even a bit mischievous!)",
-	"Pre-sale starts Jan 25th and the public launch is Feb 2nd",
+	"Rockstars NFT is a community of 10,000 uniquely generated NFTs rockin' out on the Ethereum blockchain.",
+	"They're rockstars, so they live big, but they're cartoons, so they're fun and friendly (and even a bit mischievous)!",
+	"Minting is live on Rinkeby testnet. Follow us on Twitter & join our Discord for project updates.",
 ];
 
 export const twitterPage = (
