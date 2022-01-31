@@ -116,11 +116,11 @@ export const timelineText = [
 // 	},
 // ];
 
-export const whyText = [
-	"Life isn't a choice between being rich and powerful but not a nice person doing not nice things, or being kind and giving but feeling small and unimportant.",
-	"Life is about being a good person living an epic life--even if epic just means treating the local barista really nicely.",
-	"That's the ethos we wanted to bring to the world, and that's why we created RockstarsNFT. They're Rockstars, so they live big, but they're cartoons, so they're fun and friendly (and even a bit mischievous!). ",
+export const rareText = [
+	"When you mint a Rockstar, you mint a vote for humanity. You proudly state that life is not a zero-sum game. It's a game of big and little triumphs, and big and little acts of kindness, and it is only won when everyone wins.",
+	`It's about being a good person living an epic life—even if epic just means treating the local barista really nicely.`,
 ];
+// "Life isn't a choice between being rich and powerful but not a nice person doing not nice things, or being kind and giving but feeling small and unimportant.",
 
 // export const whyText = [
 // 	"When you mint a Rockstar you choose to live an epic life of humble grandeur.",
@@ -138,8 +138,8 @@ export const whyText = [
 // 	Mint yours now
 // </div>,
 // ];
-export const rareText = [
-	"When you mint a Rockstar, you mint a vote for humanity. You proudly state that life is not a zero-sum game. It's a game of big and little triumphs, and big and little acts of kindness, and it is only won when everyone wins.",
+export const whyText = [
+	"That's the ethos we wanted to bring to the world, and that's why we created RockstarsNFT. They're Rockstars, so they live big, but they're cartoons, so they're fun and friendly (and even a bit mischievous!). ",
 	"Rare, ultra-rare, and hyper-rare Rockstars are ready to rock and roll.",
 	"Mint one now and live the dream.",
 ];

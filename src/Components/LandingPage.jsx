@@ -173,7 +173,7 @@ export default function LandingPage({
 					<div className="spacer" />
 					<div className="col-left">
 						<div className="body-text-wrapper" ref={ref1}>
-							{whyText.map((line, i) => (
+							{rareText.map((line, i) => (
 								<div
 									key={i}
 									style={{ animationDelay: ".5s" }}
@@ -192,7 +192,7 @@ export default function LandingPage({
 					{isMobile && <Image src={multicolor} show={show2} />}
 					<div className="col-left">
 						<div className="body-text-wrapper" ref={ref2}>
-							{rareText.map((line, i) => (
+							{whyText.map((line, i) => (
 								<div
 									key={i}
 									style={{ animationDelay: ".5s" }}
