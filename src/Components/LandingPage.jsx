@@ -15,6 +15,7 @@ import { useEffect, useRef, useState } from "react";
 import { ContentModal } from "./ContentModal";
 import { Timeline } from "./Timeline";
 import { About } from "./About";
+import { Marquee } from "./Marquee";
 
 export const useOnScreen = (ref, cb, isMobile = false) => {
 	const [isVisible, setIsVisible] = useState(false);
@@ -59,7 +60,13 @@ function useSetShow(isVisible) {
 export function Image({ src, style = {}, show = true }) {
 	return (
 		<div className={`${show ? "fadeIn" : "not-visible"}`}>
-			<img src={src} alt="rockstar" width="100%" style={style} />
+			<img
+				src={src}
+				alt="RockstarNFT"
+				width="100%"
+				style={style}
+				loading="lazy"
+			/>
 		</div>
 	);
 }
@@ -216,6 +223,10 @@ export default function LandingPage({
 
 			<div>
 				<About />
+			</div>
+
+			<div>
+				<Marquee />
 			</div>
 
 			<ContentModal

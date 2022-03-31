@@ -142,7 +142,7 @@ export const rareText = [
 // </div>,
 // ];
 export const whyText = [
-	"That's the ethos we wanted to bring to the world, and that's why we created RockstarsNFT. They're Rockstars, so they live big, but they're cartoons, so they're fun and friendly (and even a bit mischievous!). ",
+	"That's the ethos we wanted to bring to the world, and that's why we created RockstarsNFT. They're Rockstars, so they live big, but they're cartoons, so they're fun and friendly (and even a bit mischievous)!",
 	"Rare, ultra-rare, and hyper-rare Rockstars are ready to rock and roll.",
 	// "Mint one now and live the dream.",
 ];
