@@ -220,7 +220,7 @@ export default function LandingPage({
 			</div>
 
 			<div>
-				<Marquee />
+				<Marquee isMobile={isMobile} />
 			</div>
 
 			<ContentModal

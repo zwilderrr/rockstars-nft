@@ -5,11 +5,11 @@ import "./Marquee.css";
 
 const S3_URL = "https://rockstars-nft-dev.s3.us-east-2.amazonaws.com/images/";
 
-const images = Array(100)
+const images = Array(300)
 	.fill("")
 	.map((_, i) => `${S3_URL}${i + 1}.png`);
 
-export function Marquee() {
+export function Marquee({ isMobile }) {
 	return React.useMemo(() => {
 		return (
 			<div className="carousel-wrapper bgwhite">
@@ -19,7 +19,10 @@ export function Marquee() {
 						<div key={i}>
 							<ReactMarquee gradientWidth={0} speed={40 + 10 * i}>
 								{shuffle(images).map(src => (
-									<Image src={src} style={{ width: "150px" }} />
+									<Image
+										src={src}
+										style={{ width: isMobile ? "150px" : "200px" }}
+									/>
 								))}
 							</ReactMarquee>
 						</div>
