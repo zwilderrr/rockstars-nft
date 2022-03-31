@@ -60,13 +60,7 @@ function useSetShow(isVisible) {
 export function Image({ src, style = {}, show = true }) {
 	return (
 		<div className={`${show ? "fadeIn" : "not-visible"}`}>
-			<img
-				src={src}
-				alt="RockstarNFT"
-				width="100%"
-				style={style}
-				loading="lazy"
-			/>
+			<img src={src} alt="RockstarsNFT" width="100%" style={style} />
 		</div>
 	);
 }

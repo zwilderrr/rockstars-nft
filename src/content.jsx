@@ -28,7 +28,7 @@ export const tweet =
 export const termsLink = { name: "terms", href: "/terms" };
 
 export const ctaText = [
-	"Rockstars NFT is a community of 10,000 uniquely generated NFTs rockin' out on the Ethereum blockchain.",
+	"RockstarsNFT is a community of 10,000 uniquely generated NFTs rockin' out on the Ethereum blockchain.",
 	"They're rockstars, so they live big, but they're cartoons, so they're fun and friendly (and even a bit mischievous)!",
 	"Minting is live on Rinkeby testnet. Follow us on Twitter & join our Discord for project updates.",
 ];
@@ -169,7 +169,7 @@ export const whyText = [
 // 	"Mint a Rockstar now and join the cause.",
 // ];
 // export const whyText = [
-// 	"Rockstars NFT is a community of people who are awesome, fun and friendly. When you mint a Rockstar you choose to live an epic life of humble grandeur.",
+// 	"RockstarsNFT is a community of people who are awesome, fun and friendly. When you mint a Rockstar you choose to live an epic life of humble grandeur.",
 // 	"Rockstars are famous but treat their neighborhood barista really nicely. They're start-up founders and philosophers and quiet revolutionaries but help clean up their local park even when no one is looking. They're genuine, sincere people who do the right thing and know how to have a blast doing it.",
 // 	"A Rockstar is everything. Because they're Rockstars--so they rock, but they're cartoons, so they're always there for you.",
 // 	"When you mint a Rockstar, you mint a vote for humanity. You mint a vote for what's good and right in the world. You put yourself on the winning team and become a force of good in the world. You say that life is not a zero sum game--it's a game of big success and big kindness and it's only won when everyone wins.",

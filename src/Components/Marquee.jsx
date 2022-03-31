@@ -1,5 +1,7 @@
 import { Image } from "./LandingPage";
 import ReactMarquee from "react-fast-marquee";
+import React from "react";
+import "./Marquee.css";
 
 const S3_URL = "https://rockstars-nft-dev.s3.us-east-2.amazonaws.com/images/";
 
@@ -8,24 +10,23 @@ const images = Array(100)
 	.map((_, i) => `${S3_URL}${i + 1}.png`);
 
 export function Marquee() {
-	return (
-		<div
-			className="carousel-wrapper bgwhite"
-			style={{ paddingTop: 160, paddingBottom: 160 }}
-		>
-			{Array(3)
-				.fill("")
-				.map((_, i) => (
-					<div key={i}>
-						<ReactMarquee gradientWidth={0} speed={40 + 10 * i}>
-							{shuffle(images).map(src => (
-								<Image src={src} style={{ width: "200px" }} />
-							))}
-						</ReactMarquee>
-					</div>
-				))}
-		</div>
-	);
+	return React.useMemo(() => {
+		return (
+			<div className="carousel-wrapper bgwhite">
+				{Array(3)
+					.fill("")
+					.map((_, i) => (
+						<div key={i}>
+							<ReactMarquee gradientWidth={0} speed={40 + 10 * i}>
+								{shuffle(images).map(src => (
+									<Image src={src} style={{ width: "150px" }} />
+								))}
+							</ReactMarquee>
+						</div>
+					))}
+			</div>
+		);
+	}, []);
 }
 
 function shuffle(array) {

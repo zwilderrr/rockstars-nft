@@ -82,9 +82,9 @@ export function TermsAndConditions({ setShrinkHeader }) {
 						<p>
 							D. Ownership. Other than the rights to the Art, nothing herein
 							gives you any rights to any other trademarks or other intellectual
-							property rights belonging to Rockstars NFT including, without
-							limitation, Rockstars NFT, and the associated logos. All of these
-							rights are expressly reserved in the name of Rockstars NFT.
+							property rights belonging to RockstarsNFT including, without
+							limitation, RockstarsNFT, and the associated logos. All of these
+							rights are expressly reserved in the name of RockstarsNFT.
 						</p>
 						<p>
 							E. Feedback. You may choose to submit comments, bug reports, ideas
