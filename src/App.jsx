@@ -24,7 +24,7 @@ export default function App() {
 				setWeb3={setWeb3}
 				setProvider={setProvider}
 				setContract={setContract}
-				shrink={shrinkHeader}
+				shrink={false}
 				isMobile={isMobile}
 			/>
 
