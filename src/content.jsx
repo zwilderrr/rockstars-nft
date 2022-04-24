@@ -117,7 +117,7 @@ export const timelineText = [
 // ];
 
 export const rareText = [
-	"When you mint a Rockstar, you mint a vote for humanity. You proudly state that life is not a zero-sum game. It's a game of big and little triumphs and big and little acts of kindness, and it is only won when everyone wins.",
+	"When you mint a Rockstar, you mint a vote for humanity. You proudly state that life is not a zero-sum game. It's a game of big and little triumphs, and big and little acts of kindness, and it is only won when everyone wins.",
 	<span>
 		When you <i>are</i> a Rockstar, you're a good person living an epic
 		life—even if epic just means treating the local barista really nicely.
