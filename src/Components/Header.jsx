@@ -27,7 +27,7 @@ export function scrollToTop(top = 0) {
 	window.scroll({ top, behavior: "smooth" });
 }
 
-export default function Header({
+export function Header({
 	setWeb3,
 	setProvider,
 	setContract,
