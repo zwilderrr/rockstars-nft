@@ -10,12 +10,42 @@ import {
 	twitterPage,
 	whyText,
 } from "../content";
-import { MintButton } from "./MintButton";
-import { useEffect, useRef, useState } from "react";
-import { ContentModal } from "./ContentModal";
-import { Timeline } from "./Timeline";
-import { About } from "./About";
-import { Marquee } from "./Marquee";
+import React, { useEffect, useRef, useState } from "react";
+
+// import { MintButton } from "./MintButton";
+const MintButton = React.lazy(() =>
+	import("./MintButton").then(module => ({
+		default: module.MintButton,
+	}))
+);
+
+// import { Marquee } from "./Marquee";
+const Marquee = React.lazy(() =>
+	import("./Marquee").then(module => ({
+		default: module.Marquee,
+	}))
+);
+
+// import { ContentModal } from "./ContentModal";
+const ContentModal = React.lazy(() =>
+	import("./ContentModal").then(module => ({
+		default: module.ContentModal,
+	}))
+);
+
+// import { Timeline } from "./Timeline";
+const Timeline = React.lazy(() =>
+	import("./Timeline").then(module => ({
+		default: module.Timeline,
+	}))
+);
+
+// import { About } from "./About";
+const About = React.lazy(() =>
+	import("./About").then(module => ({
+		default: module.About,
+	}))
+);
 
 export const useOnScreen = (ref, cb, isMobile = false) => {
 	const [isVisible, setIsVisible] = useState(false);
@@ -60,17 +90,18 @@ function useSetShow(isVisible) {
 export function Image({ src, style = {}, show = true }) {
 	return (
 		<div className={`${show ? "fadeIn" : "not-visible"}`}>
-			<img src={src} alt="RockstarsNFT" width="100%" style={style} />
+			<img
+				src={src}
+				alt="RockstarsNFT"
+				width="100%"
+				style={style}
+				loading="lazy"
+			/>
 		</div>
 	);
 }
 
-export default function LandingPage({
-	web3,
-	Contract,
-	isMobile,
-	setShrinkHeader,
-}) {
+export function LandingPage({ web3, Contract, isMobile, setShrinkHeader }) {
 	const ref1 = useRef(null);
 	const ref2 = useRef(null);
 	const ref3 = useRef(null);
