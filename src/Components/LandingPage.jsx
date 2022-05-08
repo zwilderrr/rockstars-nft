@@ -2,50 +2,14 @@ import "./LandingPage.css";
 import rockstarMain from "../images/rockstar-main.png";
 import multicolor from "../images/multicolor.png";
 import heat from "../images/heat.png";
-import {
-	ctaText,
-	rareText,
-	tikTokPage,
-	timelineText,
-	twitterPage,
-	whyText,
-} from "../content";
-import React, { useEffect, useRef, useState } from "react";
-
-// import { MintButton } from "./MintButton";
-const MintButton = React.lazy(() =>
-	import("./MintButton").then(module => ({
-		default: module.MintButton,
-	}))
-);
-
-// import { Marquee } from "./Marquee";
-const Marquee = React.lazy(() =>
-	import("./Marquee").then(module => ({
-		default: module.Marquee,
-	}))
-);
-
-// import { ContentModal } from "./ContentModal";
-const ContentModal = React.lazy(() =>
-	import("./ContentModal").then(module => ({
-		default: module.ContentModal,
-	}))
-);
-
-// import { Timeline } from "./Timeline";
-const Timeline = React.lazy(() =>
-	import("./Timeline").then(module => ({
-		default: module.Timeline,
-	}))
-);
-
-// import { About } from "./About";
-const About = React.lazy(() =>
-	import("./About").then(module => ({
-		default: module.About,
-	}))
-);
+import { ReactComponent as Heading } from "../images/heading-text.svg";
+import { ctaText, rareText, whyText } from "../content";
+import { MintButton } from "./MintButton";
+import { useEffect, useRef, useState } from "react";
+import { ContentModal } from "./ContentModal";
+import { Timeline } from "./Timeline";
+import { About } from "./About";
+import { Marquee } from "./Marquee";
 
 export const useOnScreen = (ref, cb, isMobile = false) => {
 	const [isVisible, setIsVisible] = useState(false);
@@ -165,7 +129,7 @@ export function LandingPage({ web3, Contract, isMobile, setShrinkHeader }) {
 		<div>
 			<div className="first" ref={ref3}>
 				<div className="banner-text">
-					A fun, friendly community of movers and shakers
+					<Heading />
 				</div>
 				<div className="row">
 					{isMobile && <Image src={rockstarMain} />}

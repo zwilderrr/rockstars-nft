@@ -40,18 +40,17 @@
 	padding: 0px 50px;
 }
 
+.header svg {
+	width: 39px;
+}
+
+.header svg:hover {
+	cursor: pointer;
+}
+
 .link {
 	font-size: 24px;
 	margin-right: 36px;
-}
-
-.logo-text {
-	font-family: "Lobster", cursive;
-	font-size: 64px;
-}
-
-.logo-text:hover {
-	cursor: pointer;
 }
 
 @media only screen and (max-width: 768px) {
@@ -65,14 +64,15 @@
 	}
 
 	.header {
-		padding: 10px 20px;
+		padding: 0px 20px;
 	}
 
 	.header.shadow {
 		padding: 0px 20px;
 	}
 
-	.header.shadow {
+	.header svg {
+		width: 25px;
 	}
 
 	.link {
@@ -82,9 +82,5 @@
 
 	.links {
 		display: flex;
-	}
-
-	.logo-text {
-		font-size: 42px;
 	}
 }

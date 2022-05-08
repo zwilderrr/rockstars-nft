@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { socialMediaLinks } from "../content";
 import "./Header.css";
+import { ReactComponent as Logo } from "../images/logo.svg";
 
 import RockstarsNFTJSON from "../contracts/RockstarsNFT.json";
 
@@ -115,13 +116,9 @@ export function Header({
 
 	return (
 		<div className={`header ${shrink ? "shadow" : ""}`}>
-			<div className="logo">
-				<Link to="/">
-					<div className="logo-text" onClick={() => scrollToTop(0)}>
-						R
-					</div>
-				</Link>
-			</div>
+			<Link to="/">
+				<Logo />
+			</Link>
 
 			<div className="links-wrapper">
 				<div className="links">
