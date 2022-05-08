@@ -2,14 +2,8 @@ import "./LandingPage.css";
 import rockstarMain from "../images/rockstar-main.png";
 import multicolor from "../images/multicolor.png";
 import heat from "../images/heat.png";
-import {
-	ctaText,
-	rareText,
-	tikTokPage,
-	timelineText,
-	twitterPage,
-	whyText,
-} from "../content";
+import { ReactComponent as Heading } from "../images/heading-text.svg";
+import { ctaText, rareText, whyText } from "../content";
 import { MintButton } from "./MintButton";
 import { useEffect, useRef, useState } from "react";
 import { ContentModal } from "./ContentModal";
@@ -134,7 +128,7 @@ export default function LandingPage({
 		<div>
 			<div className="first" ref={ref3}>
 				<div className="banner-text">
-					A fun, friendly community of movers and shakers
+					<Heading />
 				</div>
 				<div className="row">
 					{isMobile && <Image src={rockstarMain} />}
